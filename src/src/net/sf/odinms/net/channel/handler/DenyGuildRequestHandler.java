@@ -8,14 +8,14 @@ import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
 
 public class DenyGuildRequestHandler extends AbstractMaplePacketHandler {
 
-    @Override
-    public void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
-        c.getPlayer().resetAfkTime();
-        slea.readByte();
-        String from = slea.readMapleAsciiString();
-        MapleCharacter cfrom = c.getChannelServer().getPlayerStorage().getCharacterByName(from);
-        if (cfrom != null) {
-            cfrom.getClient().getSession().write(MaplePacketCreator.denyGuildInvitation(c.getPlayer().getName()));
-        }
-    }
+	@Override
+	public void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
+		c.getPlayer().resetAfkTime();
+		slea.readByte();
+		String from = slea.readMapleAsciiString();
+		MapleCharacter cfrom = c.getChannelServer().getPlayerStorage().getCharacterByName(from);
+		if (cfrom != null) {
+			cfrom.getClient().getSession().write(MaplePacketCreator.denyGuildInvitation(c.getPlayer().getName()));
+		}
+	}
 }

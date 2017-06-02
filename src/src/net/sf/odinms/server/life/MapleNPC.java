@@ -7,52 +7,53 @@ import net.sf.odinms.server.maps.MapleMapObjectType;
 import net.sf.odinms.tools.MaplePacketCreator;
 
 public class MapleNPC extends AbstractLoadedMapleLife {
-    private MapleNPCStats stats;
-    private boolean custom = false;
 
-    public MapleNPC(int id, MapleNPCStats stats) {
-        super(id);
-        this.stats = stats;
-    }
+	private MapleNPCStats	stats;
+	private boolean			custom	= false;
 
-    public boolean hasShop() {
-        return MapleShopFactory.getInstance().getShopForNPC(getId()) != null;
-    }
+	public MapleNPC(int id, MapleNPCStats stats) {
+		super(id);
+		this.stats = stats;
+	}
 
-    public void sendShop(MapleClient c) {
-        MapleShop shop = MapleShopFactory.getInstance().getShopForNPC(getId());
-        shop.sendShop(c);
-    }
+	public boolean hasShop() {
+		return MapleShopFactory.getInstance().getShopForNPC(getId()) != null;
+	}
 
-    @Override
-    public void sendSpawnData(MapleClient client) {
-         if (this.getId() >= 9010011 && this.getId() <= 9010013) {
-            client.getSession().write(MaplePacketCreator.spawnNPCRequestController(this, false));
-         } else {
-            client.getSession().write(MaplePacketCreator.spawnNPC(this));
-            client.getSession().write(MaplePacketCreator.spawnNPCRequestController(this, true));
-        }
-    }
+	public void sendShop(MapleClient c) {
+		MapleShop shop = MapleShopFactory.getInstance().getShopForNPC(getId());
+		shop.sendShop(c);
+	}
 
-    @Override
-    public void sendDestroyData(MapleClient client) {
-        throw new UnsupportedOperationException();
-    }
+	@Override
+	public void sendSpawnData(MapleClient client) {
+		if (this.getId() >= 9010011 && this.getId() <= 9010013) {
+			client.getSession().write(MaplePacketCreator.spawnNPCRequestController(this, false));
+		} else {
+			client.getSession().write(MaplePacketCreator.spawnNPC(this));
+			client.getSession().write(MaplePacketCreator.spawnNPCRequestController(this, true));
+		}
+	}
 
-    @Override
-    public MapleMapObjectType getType() {
-        return MapleMapObjectType.NPC;
-    }
+	@Override
+	public void sendDestroyData(MapleClient client) {
+		throw new UnsupportedOperationException();
+	}
 
-    public String getName() {
-        return stats.getName();
-    }
+	@Override
+	public MapleMapObjectType getType() {
+		return MapleMapObjectType.NPC;
+	}
 
-    public boolean isCustom() {
-        return custom;
-    }
+	public String getName() {
+		return stats.getName();
+	}
 
-    public void setCustom(boolean custom) {
-        this.custom = custom;
-    }
+	public boolean isCustom() {
+		return custom;
+	}
+
+	public void setCustom(boolean custom) {
+		this.custom = custom;
+	}
 }

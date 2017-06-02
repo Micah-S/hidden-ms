@@ -12,53 +12,55 @@ import net.sf.odinms.scripting.AbstractScriptManager;
 
 public class EventScriptManager extends AbstractScriptManager {
 
-    private class EventEntry {
-        public EventEntry(String script, Invocable iv, EventManager em) {
-            this.script = script;
-            this.iv = iv;
-            this.em = em;
-        }
-        public String script;
-        public Invocable iv;
-        public EventManager em;
-    }
+	private class EventEntry {
 
-    private Map<String,EventEntry> events = new LinkedHashMap<String,EventEntry>();
+		public EventEntry(String script, Invocable iv, EventManager em) {
+			this.script = script;
+			this.iv = iv;
+			this.em = em;
+		}
 
-    public EventScriptManager(ChannelServer cserv, String[] scripts) {
-        super();
-        for (String script : scripts) {
-            if (!script.equals("")) {
-                Invocable iv = getInvocable("event/" + script + ".js", null);
-                events.put(script, new EventEntry(script, iv, new EventManager(cserv, iv, script)));
-            }
-        }
-    }
+		public String		script;
+		public Invocable	iv;
+		public EventManager	em;
+	}
 
-    public EventManager getEventManager(String event) {
-        EventEntry entry = events.get(event);
-        if (entry == null) {
-            return null;
-        }
-        return entry.em;
-    }
+	private Map<String, EventEntry> events = new LinkedHashMap<String, EventEntry>();
 
-    public void init() {
-        for (EventEntry entry : events.values()) {
-            try {
-                ((ScriptEngine) entry.iv).put("em", entry.em);
-                entry.iv.invokeFunction("init", (Object) null);
-            } catch (ScriptException ex) {
-                Logger.getLogger(EventScriptManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (NoSuchMethodException ex) {
-                Logger.getLogger(EventScriptManager.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
+	public EventScriptManager(ChannelServer cserv, String[] scripts) {
+		super();
+		for (String script : scripts) {
+			if (!script.equals("")) {
+				Invocable iv = getInvocable("event/" + script + ".js", null);
+				events.put(script, new EventEntry(script, iv, new EventManager(cserv, iv, script)));
+			}
+		}
+	}
 
-    public void cancel() {
-        for (EventEntry entry : events.values()) {
-            entry.em.cancel();
-        }
-    }
+	public EventManager getEventManager(String event) {
+		EventEntry entry = events.get(event);
+		if (entry == null) {
+			return null;
+		}
+		return entry.em;
+	}
+
+	public void init() {
+		for (EventEntry entry : events.values()) {
+			try {
+				((ScriptEngine) entry.iv).put("em", entry.em);
+				entry.iv.invokeFunction("init", (Object) null);
+			} catch (ScriptException ex) {
+				Logger.getLogger(EventScriptManager.class.getName()).log(Level.SEVERE, null, ex);
+			} catch (NoSuchMethodException ex) {
+				Logger.getLogger(EventScriptManager.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
+	}
+
+	public void cancel() {
+		for (EventEntry entry : events.values()) {
+			entry.em.cancel();
+		}
+	}
 }

@@ -4,25 +4,28 @@ import java.awt.Point;
 import net.sf.odinms.client.MapleClient;
 
 public interface MapleMapObject {
-    public int getObjectId();
 
-    public void setObjectId(int id);
+	public int getObjectId();
 
-    public MapleMapObjectType getType();
+	public void setObjectId(int id);
 
-    /**
-     * returns a copy of the current position
-     * @return
-     */
-    public Point getPosition();
+	public MapleMapObjectType getType();
 
-    /**
-     * sets the current position of the object to the position given in the point.
-     * @param position
-     */
-    public void setPosition(Point position);
+	/**
+	 * returns a copy of the current position
+	 * 
+	 * @return
+	 */
+	public Point getPosition();
 
-    public void sendSpawnData (MapleClient client);
+	/**
+	 * sets the current position of the object to the position given in the point.
+	 * 
+	 * @param position
+	 */
+	public void setPosition(Point position);
 
-    public void sendDestroyData (MapleClient client);
+	public void sendSpawnData(MapleClient client);
+
+	public void sendDestroyData(MapleClient client);
 }

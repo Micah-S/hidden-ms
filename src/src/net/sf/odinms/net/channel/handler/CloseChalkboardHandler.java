@@ -6,9 +6,9 @@ import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
 
 public class CloseChalkboardHandler extends AbstractMaplePacketHandler {
 
-    @Override
-    public void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
-        c.getPlayer().resetAfkTime();
-        c.getPlayer().setChalkboard(null);
-    }
+	@Override
+	public void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
+		c.getPlayer().resetAfkTime();
+		c.getPlayer().setChalkboard(null);
+	}
 }

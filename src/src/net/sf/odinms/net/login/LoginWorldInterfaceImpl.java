@@ -7,33 +7,34 @@ import javax.rmi.ssl.SslRMIServerSocketFactory;
 import net.sf.odinms.net.login.remote.LoginWorldInterface;
 
 public class LoginWorldInterfaceImpl extends UnicastRemoteObject implements LoginWorldInterface {
-    private static final long serialVersionUID = -3405666366539470037L;
 
-    public LoginWorldInterfaceImpl() throws RemoteException {
-        super(0, new SslRMIClientSocketFactory(), new SslRMIServerSocketFactory());
-    }
+	private static final long serialVersionUID = -3405666366539470037L;
 
-    public void channelOnline(int channel, String ip) throws RemoteException {
-        LoginServer.getInstance().addChannel(channel, ip);
-    }
+	public LoginWorldInterfaceImpl() throws RemoteException {
+		super(0, new SslRMIClientSocketFactory(), new SslRMIServerSocketFactory());
+	}
 
-    public void channelOffline(int channel) throws RemoteException {
-        LoginServer.getInstance().removeChannel(channel);
-    }
+	public void channelOnline(int channel, String ip) throws RemoteException {
+		LoginServer.getInstance().addChannel(channel, ip);
+	}
 
-    public void shutdown() throws RemoteException {
-        LoginServer.getInstance().shutdown();
-    }
+	public void channelOffline(int channel) throws RemoteException {
+		LoginServer.getInstance().removeChannel(channel);
+	}
 
-    public boolean isAvailable() throws RemoteException {
-        return true;
-    }
+	public void shutdown() throws RemoteException {
+		LoginServer.getInstance().shutdown();
+	}
 
-    public double getPossibleLoginAverage() throws RemoteException {
-        return LoginWorker.getInstance().getPossibleLoginAverage();
-    }
+	public boolean isAvailable() throws RemoteException {
+		return true;
+	}
 
-    public int getWaitingUsers() throws RemoteException {
-        return LoginWorker.getInstance().getWaitingUsers();
-    }
+	public double getPossibleLoginAverage() throws RemoteException {
+		return LoginWorker.getInstance().getPossibleLoginAverage();
+	}
+
+	public int getWaitingUsers() throws RemoteException {
+		return LoginWorker.getInstance().getWaitingUsers();
+	}
 }

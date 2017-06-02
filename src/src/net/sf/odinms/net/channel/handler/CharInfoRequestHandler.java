@@ -8,12 +8,12 @@ import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
 
 public class CharInfoRequestHandler extends AbstractMaplePacketHandler {
 
-    @Override
-    public void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
-        c.getPlayer().resetAfkTime();
-        slea.readInt();
-        int cid = slea.readInt();
-        c.getSession().write(MaplePacketCreator.charInfo(((MapleCharacter) c.getPlayer().getMap().getMapObject(cid))));
-        return;
-    }
+	@Override
+	public void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
+		c.getPlayer().resetAfkTime();
+		slea.readInt();
+		int cid = slea.readInt();
+		c.getSession().write(MaplePacketCreator.charInfo(((MapleCharacter) c.getPlayer().getMap().getMapObject(cid))));
+		return;
+	}
 }

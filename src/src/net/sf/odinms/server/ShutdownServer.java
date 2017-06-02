@@ -8,55 +8,56 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ShutdownServer implements Runnable {
-    private static Logger log = LoggerFactory.getLogger(ShutdownServer.class);
 
-    private int myChannel;
+	private static Logger	log	= LoggerFactory.getLogger(ShutdownServer.class);
 
-    public ShutdownServer(int channel) {
-        myChannel = channel;
-    }
+	private int				myChannel;
 
-    @Override
-    public void run() {
-        try {
-            ChannelServer.getInstance(myChannel).shutdown();
-        } catch (Throwable t) {
-            log.error("SHUTDOWN ERROR", t);
-        }
-        int c = 200;
-        while (ChannelServer.getInstance(myChannel).getConnectedClients() > 0 && c > 0) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                log.error("ERROR", e);
-            }
-            c--;
-        }
-        try {
-            ChannelServer.getWorldRegistry().deregisterChannelServer(myChannel);
-        } catch (RemoteException e) {
-            // We are shutting down.
-        }
-        try {
-            ChannelServer.getInstance(myChannel).unbind();
-        } catch (Throwable t) {
-            log.error("SHUTDOWN ERROR", t);
-        }
+	public ShutdownServer(int channel) {
+		myChannel = channel;
+	}
 
-        boolean allShutdownFinished = true;
-        for (ChannelServer cserv : ChannelServer.getAllInstances()){
-            if (!cserv.hasFinishedShutdown()) {
-                allShutdownFinished = false;
-            }
-        }
-        if (allShutdownFinished) {
-            TimerManager.getInstance().stop();
-            try {
-                DatabaseConnection.closeAll();
-            } catch (SQLException e) {
-                log.error("THROW", e);
-            }
-            System.exit(0);
-        }
-    }
+	@Override
+	public void run() {
+		try {
+			ChannelServer.getInstance(myChannel).shutdown();
+		} catch (Throwable t) {
+			log.error("SHUTDOWN ERROR", t);
+		}
+		int c = 200;
+		while (ChannelServer.getInstance(myChannel).getConnectedClients() > 0 && c > 0) {
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				log.error("ERROR", e);
+			}
+			c--;
+		}
+		try {
+			ChannelServer.getWorldRegistry().deregisterChannelServer(myChannel);
+		} catch (RemoteException e) {
+			// We are shutting down.
+		}
+		try {
+			ChannelServer.getInstance(myChannel).unbind();
+		} catch (Throwable t) {
+			log.error("SHUTDOWN ERROR", t);
+		}
+
+		boolean allShutdownFinished = true;
+		for (ChannelServer cserv : ChannelServer.getAllInstances()) {
+			if (!cserv.hasFinishedShutdown()) {
+				allShutdownFinished = false;
+			}
+		}
+		if (allShutdownFinished) {
+			TimerManager.getInstance().stop();
+			try {
+				DatabaseConnection.closeAll();
+			} catch (SQLException e) {
+				log.error("THROW", e);
+			}
+			System.exit(0);
+		}
+	}
 }

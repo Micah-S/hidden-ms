@@ -11,64 +11,66 @@ import net.sf.odinms.provider.MapleDataEntity;
 import net.sf.odinms.provider.wz.MapleDataType;
 
 public class MapleCustomQuestData implements MapleData, Serializable {
-    private static final long serialVersionUID = -8600005891655365066L;
 
-    private List<MapleCustomQuestData> children = new LinkedList<MapleCustomQuestData>();
-    private String name;
-    private Object data;
-    private MapleDataEntity parent;
+	private static final long			serialVersionUID	= -8600005891655365066L;
 
-    public MapleCustomQuestData(String name, Object data, MapleDataEntity parent) {
-        this.name = name;
-        this.data = data;
-        this.parent = parent;
-    }
+	private List<MapleCustomQuestData>	children			= new LinkedList<MapleCustomQuestData>();
+	private String						name;
+	private Object						data;
+	private MapleDataEntity				parent;
 
-    public void addChild(MapleData child) {
-        children.add((MapleCustomQuestData) child);
-    }
+	public MapleCustomQuestData(String name, Object data, MapleDataEntity parent) {
+		this.name = name;
+		this.data = data;
+		this.parent = parent;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void addChild(MapleData child) {
+		children.add((MapleCustomQuestData) child);
+	}
 
-    public MapleDataType getType() {
-        return MapleDataType.UNKNOWN_TYPE;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public List<MapleData> getChildren() {
-        MapleData[] ret = new MapleData[children.size()];
-        ret = children.toArray(ret);
-        return new ArrayList<MapleData>(Arrays.asList(ret));
-    }
+	public MapleDataType getType() {
+		return MapleDataType.UNKNOWN_TYPE;
+	}
 
-    public MapleData getChildByPath(String name) {
-        if (name.equals(this.name)) return this;
-        String lookup;
-        String nextName;
-        if (name.indexOf("/") == -1) {
-            lookup = name;
-            nextName = name;
-        } else {
-            lookup = name.substring(0, name.indexOf("/"));
-            nextName = name.substring(name.indexOf("/") + 1);
-        }
-        for (MapleData child : children) {
-            if (child.getName().equals(lookup))
-                return child.getChildByPath(nextName);
-        }
-        return null;
-    }
+	public List<MapleData> getChildren() {
+		MapleData[] ret = new MapleData[children.size()];
+		ret = children.toArray(ret);
+		return new ArrayList<MapleData>(Arrays.asList(ret));
+	}
 
-    public Object getData() {
-        return data;
-    }
+	public MapleData getChildByPath(String name) {
+		if (name.equals(this.name))
+			return this;
+		String lookup;
+		String nextName;
+		if (name.indexOf("/") == -1) {
+			lookup = name;
+			nextName = name;
+		} else {
+			lookup = name.substring(0, name.indexOf("/"));
+			nextName = name.substring(name.indexOf("/") + 1);
+		}
+		for (MapleData child : children) {
+			if (child.getName().equals(lookup))
+				return child.getChildByPath(nextName);
+		}
+		return null;
+	}
 
-    public Iterator<MapleData> iterator() {
-        return getChildren().iterator();
-    }
+	public Object getData() {
+		return data;
+	}
 
-    public MapleDataEntity getParent() {
-        return parent;
-    }
+	public Iterator<MapleData> iterator() {
+		return getChildren().iterator();
+	}
+
+	public MapleDataEntity getParent() {
+		return parent;
+	}
 }

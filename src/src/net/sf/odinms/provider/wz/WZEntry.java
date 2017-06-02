@@ -4,37 +4,38 @@ import net.sf.odinms.provider.MapleDataEntity;
 import net.sf.odinms.provider.MapleDataEntry;
 
 public class WZEntry implements MapleDataEntry {
-    private String name;
-    private int size;
-    private int checksum;
-    private int offset;
-    private MapleDataEntity parent;
 
-    public WZEntry(String name, int size, int checksum, MapleDataEntity parent) {
-        super();
-        this.name = name;
-        this.size = size;
-        this.checksum = checksum;
-        this.parent = parent;
-    }
+	private String			name;
+	private int				size;
+	private int				checksum;
+	private int				offset;
+	private MapleDataEntity	parent;
 
-    public String getName() {
-        return name;
-    }
+	public WZEntry(String name, int size, int checksum, MapleDataEntity parent) {
+		super();
+		this.name = name;
+		this.size = size;
+		this.checksum = checksum;
+		this.parent = parent;
+	}
 
-    public int getSize() {
-        return size;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public int getChecksum() {
-        return checksum;
-    }
+	public int getSize() {
+		return size;
+	}
 
-    public int getOffset() {
-        return offset;
-    }
+	public int getChecksum() {
+		return checksum;
+	}
 
-    public MapleDataEntity getParent() {
-        return parent;
-    }
+	public int getOffset() {
+		return offset;
+	}
+
+	public MapleDataEntity getParent() {
+		return parent;
+	}
 }

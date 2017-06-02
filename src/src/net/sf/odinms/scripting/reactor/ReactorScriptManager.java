@@ -15,51 +15,53 @@ import net.sf.odinms.server.life.MapleMonsterInformationProvider.DropEntry;
 import net.sf.odinms.server.maps.MapleReactor;
 
 public class ReactorScriptManager extends AbstractScriptManager {
-    private static ReactorScriptManager instance = new ReactorScriptManager();
-    private Map<Integer, List<DropEntry>> drops = new HashMap<Integer, List<DropEntry>>();
 
-    public synchronized static ReactorScriptManager getInstance() {
-        return instance;
-    }
+	private static ReactorScriptManager		instance	= new ReactorScriptManager();
+	private Map<Integer, List<DropEntry>>	drops		= new HashMap<Integer, List<DropEntry>>();
 
-    public void act(MapleClient c, MapleReactor reactor) {
-        try {
-            ReactorActionManager rm = new ReactorActionManager(c, reactor);
-            Invocable iv = getInvocable("reactor/" + reactor.getId() + ".js", c);
-            if (iv == null) {
-                return;
-            }
-            engine.put("rm", rm);
-            ReactorScript rs = iv.getInterface(ReactorScript.class);
-            rs.act();
-        } catch (Exception e) {
-            log.error("Error executing reactor script.", e);
-        }
-    }
+	public synchronized static ReactorScriptManager getInstance() {
+		return instance;
+	}
 
-    public List<DropEntry> getDrops(int rid) {
-        List<DropEntry> ret = drops.get(rid);
-        if (ret == null) {
-            ret = new LinkedList<DropEntry>();
-            try {
-                Connection con = DatabaseConnection.getConnection();
-                PreparedStatement ps = con.prepareStatement("SELECT itemid, chance FROM reactordrops WHERE reactorid = ? AND chance >= 0");
-                ps.setInt(1, rid);
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    ret.add(new DropEntry(rs.getInt("itemid"), rs.getInt("chance")));
-                }
-                rs.close();
-                ps.close();
-            } catch (Exception e) {
-                log.error("Could not retrieve drops for reactor " + rid, e);
-            }
-            drops.put(rid, ret);
-        }
-        return ret;
-    }
+	public void act(MapleClient c, MapleReactor reactor) {
+		try {
+			ReactorActionManager rm = new ReactorActionManager(c, reactor);
+			Invocable iv = getInvocable("reactor/" + reactor.getId() + ".js", c);
+			if (iv == null) {
+				return;
+			}
+			engine.put("rm", rm);
+			ReactorScript rs = iv.getInterface(ReactorScript.class);
+			rs.act();
+		} catch (Exception e) {
+			log.error("Error executing reactor script.", e);
+		}
+	}
 
-    public void clearDrops() {
-        drops.clear();
-    }
+	public List<DropEntry> getDrops(int rid) {
+		List<DropEntry> ret = drops.get(rid);
+		if (ret == null) {
+			ret = new LinkedList<DropEntry>();
+			try {
+				Connection con = DatabaseConnection.getConnection();
+				PreparedStatement ps = con.prepareStatement(
+						"SELECT itemid, chance FROM reactordrops WHERE reactorid = ? AND chance >= 0");
+				ps.setInt(1, rid);
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					ret.add(new DropEntry(rs.getInt("itemid"), rs.getInt("chance")));
+				}
+				rs.close();
+				ps.close();
+			} catch (Exception e) {
+				log.error("Could not retrieve drops for reactor " + rid, e);
+			}
+			drops.put(rid, ret);
+		}
+		return ret;
+	}
+
+	public void clearDrops() {
+		drops.clear();
+	}
 }

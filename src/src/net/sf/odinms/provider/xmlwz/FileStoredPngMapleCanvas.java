@@ -7,42 +7,45 @@ import javax.imageio.ImageIO;
 import net.sf.odinms.provider.MapleCanvas;
 
 public class FileStoredPngMapleCanvas implements MapleCanvas {
-    private File file;
-    private int width;
-    private int height;
-    private BufferedImage image;
 
-    public FileStoredPngMapleCanvas(int width, int height, File fileIn) {
-        this.width = width;
-        this.height = height;
-        this.file = fileIn;
-    }
+	private File			file;
+	private int				width;
+	private int				height;
+	private BufferedImage	image;
 
-    @Override
-    public int getHeight() {
-        return height;
-    }
+	public FileStoredPngMapleCanvas(int width, int height, File fileIn) {
+		this.width = width;
+		this.height = height;
+		this.file = fileIn;
+	}
 
-    @Override
-    public int getWidth() {
-        return width;
-    }
+	@Override
+	public int getHeight() {
+		return height;
+	}
 
-    @Override
-    public BufferedImage getImage() {
-        loadImageIfNecessary();
-        return image;
-    }
-    private void loadImageIfNecessary() {
-        if (image == null) {
-            try {
-                image = ImageIO.read(file);
-                // replace the dimensions loaded from the wz by the REAL dimensions from the image - should be equal tho
-                width = image.getWidth();
-                height = image.getHeight();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
+	@Override
+	public int getWidth() {
+		return width;
+	}
+
+	@Override
+	public BufferedImage getImage() {
+		loadImageIfNecessary();
+		return image;
+	}
+
+	private void loadImageIfNecessary() {
+		if (image == null) {
+			try {
+				image = ImageIO.read(file);
+				// replace the dimensions loaded from the wz by the REAL dimensions from the image -
+				// should be equal tho
+				width = image.getWidth();
+				height = image.getHeight();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+	}
 }

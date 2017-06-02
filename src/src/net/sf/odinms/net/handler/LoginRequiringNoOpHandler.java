@@ -5,22 +5,23 @@ import net.sf.odinms.net.MaplePacketHandler;
 import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
 
 public final class LoginRequiringNoOpHandler implements MaplePacketHandler {
-    private static LoginRequiringNoOpHandler instance = new LoginRequiringNoOpHandler();
 
-    private LoginRequiringNoOpHandler() {
-        // singleton
-    }
+	private static LoginRequiringNoOpHandler instance = new LoginRequiringNoOpHandler();
 
-    public static LoginRequiringNoOpHandler getInstance() {
-        return instance;
-    }
+	private LoginRequiringNoOpHandler() {
+		// singleton
+	}
 
-    @Override
-    public void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
-    }
+	public static LoginRequiringNoOpHandler getInstance() {
+		return instance;
+	}
 
-    @Override
-    public boolean validateState(MapleClient c) {
-        return c.isLoggedIn();
-    }
+	@Override
+	public void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
+	}
+
+	@Override
+	public boolean validateState(MapleClient c) {
+		return c.isLoggedIn();
+	}
 }

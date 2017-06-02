@@ -6,92 +6,88 @@ import java.util.Map;
 import net.sf.odinms.tools.Pair;
 
 public class MapleReactorStats {
-    private Point tl;
-    private Point br;
-    private Map<Byte, StateData> stateInfo = new HashMap<Byte, StateData>();
 
-    /*public int getInfoId() {
-    return infoId;
-    }
+	private Point					tl;
+	private Point					br;
+	private Map<Byte, StateData>	stateInfo	= new HashMap<Byte, StateData>();
 
-    public void setInfoId(int infoId) {
-    this.infoId = infoId;
-    }
+	/*
+	 * public int getInfoId() { return infoId; }
+	 * 
+	 * public void setInfoId(int infoId) { this.infoId = infoId; }
+	 * 
+	 * public void setType(int type) { this.type = type; }
+	 * 
+	 * public int getType() { return type; }
+	 */
 
-    public void setType(int type) {
-            this.type = type;
-    }
+	public void setTL(Point tl) {
+		this.tl = tl;
+	}
 
-    public int getType() {
-            return type;
-    }*/
+	public void setBR(Point br) {
+		this.br = br;
+	}
 
-    public void setTL(Point tl) {
-        this.tl = tl;
-    }
+	public Point getTL() {
+		return tl;
+	}
 
-    public void setBR(Point br) {
-        this.br = br;
-    }
+	public Point getBR() {
+		return br;
+	}
 
-    public Point getTL() {
-        return tl;
-    }
+	public void addState(byte state, int type, Pair<Integer, Integer> reactItem, byte nextState) {
+		StateData newState = new StateData(type, reactItem, nextState);
+		stateInfo.put(state, newState);
+	}
 
-    public Point getBR() {
-        return br;
-    }
+	public byte getNextState(byte state) {
+		StateData nextState = stateInfo.get(state);
+		if (nextState != null)
+			return nextState.getNextState();
+		else
+			return -1;
+	}
 
-    public void addState(byte state, int type, Pair<Integer, Integer> reactItem, byte nextState) {
-        StateData newState = new StateData(type, reactItem, nextState);
-        stateInfo.put(state, newState);
-    }
+	public int getType(byte state) {
+		StateData nextState = stateInfo.get(state);
+		if (nextState != null)
+			return nextState.getType();
+		else
+			return -1;
+	}
 
-    public byte getNextState(byte state) {
-        StateData nextState = stateInfo.get(state);
-        if (nextState != null)
-            return nextState.getNextState();
-        else
-            return -1;
-    }
+	public Pair<Integer, Integer> getReactItem(byte state) {
+		StateData nextState = stateInfo.get(state);
+		if (nextState != null)
+			return nextState.getReactItem();
+		else
+			return null;
+	}
 
-    public int getType(byte state) {
-        StateData nextState = stateInfo.get(state);
-        if (nextState != null)
-            return nextState.getType();
-        else
-            return -1;
-    }
+	private class StateData {
 
-    public Pair<Integer, Integer> getReactItem(byte state) {
-        StateData nextState = stateInfo.get(state);
-        if (nextState != null)
-            return nextState.getReactItem();
-        else
-            return null;
-    }
+		private int						type;
+		private Pair<Integer, Integer>	reactItem;
+		private byte					nextState;
 
-    private class StateData {
-        private int type;
-        private Pair<Integer, Integer> reactItem;
-        private byte nextState;
+		private StateData(int type, Pair<Integer, Integer> reactItem, byte nextState) {
+			this.type = type;
+			this.reactItem = reactItem;
+			this.nextState = nextState;
+		}
 
-        private StateData(int type, Pair<Integer, Integer> reactItem, byte nextState) {
-            this.type = type;
-            this.reactItem = reactItem;
-            this.nextState = nextState;
-        }
+		private int getType() {
+			return type;
+		}
 
-        private int getType() {
-            return type;
-        }
+		private byte getNextState() {
+			return nextState;
+		}
 
-        private byte getNextState() {
-            return nextState;
-        }
-
-        private Pair<Integer, Integer> getReactItem() {
-            return reactItem;
-        }
-    }
+		private Pair<Integer, Integer> getReactItem() {
+			return reactItem;
+		}
+	}
 }

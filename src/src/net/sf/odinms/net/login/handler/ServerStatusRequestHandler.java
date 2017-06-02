@@ -7,8 +7,8 @@ import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
 
 public class ServerStatusRequestHandler extends AbstractMaplePacketHandler {
 
-    @Override
-    public void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
-        c.getSession().write(MaplePacketCreator.getServerStatus(0));
-    }
+	@Override
+	public void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
+		c.getSession().write(MaplePacketCreator.getServerStatus(0));
+	}
 }

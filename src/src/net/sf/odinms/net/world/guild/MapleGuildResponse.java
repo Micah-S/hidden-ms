@@ -5,20 +5,19 @@ import net.sf.odinms.net.MaplePacket;
 
 public enum MapleGuildResponse {
 
-    NOT_IN_CHANNEL(0x2a),
-    ALREADY_IN_GUILD(0x28),
-    NOT_IN_GUILD(0x2d);
-    private int value;
+	NOT_IN_CHANNEL(0x2a), ALREADY_IN_GUILD(0x28), NOT_IN_GUILD(0x2d);
 
-    private MapleGuildResponse(int val) {
-        value = val;
-    }
+	private int value;
 
-    public int getValue() {
-        return value;
-    }
+	private MapleGuildResponse(int val) {
+		value = val;
+	}
 
-    public MaplePacket getPacket() {
-        return MaplePacketCreator.genericGuildMessage((byte) value);
-    }
+	public int getValue() {
+		return value;
+	}
+
+	public MaplePacket getPacket() {
+		return MaplePacketCreator.genericGuildMessage((byte) value);
+	}
 }

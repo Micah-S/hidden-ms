@@ -2,26 +2,26 @@ package net.sf.odinms.client;
 
 public interface IItem extends Comparable<IItem> {
 
-    public final int ITEM = 2;
-    public final int EQUIP = 1;
+	public final int	ITEM	= 2;
+	public final int	EQUIP	= 1;
 
-    byte getType();
+	byte getType();
 
-    byte getPosition();
+	byte getPosition();
 
-    int getItemId();
+	int getItemId();
 
-    int getPetId();
+	int getPetId();
 
-    short getQuantity();
+	short getQuantity();
 
-    String getOwner();
+	String getOwner();
 
-    IItem copy();
+	IItem copy();
 
-    void setOwner(String owner);
+	void setOwner(String owner);
 
-    void setPosition(byte position);
+	void setPosition(byte position);
 
-    void setQuantity(short quantity);
+	void setQuantity(short quantity);
 }

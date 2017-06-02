@@ -2,37 +2,37 @@ package net.sf.odinms.net.channel;
 
 public interface ChannelServerMBean {
 
-    void shutdown(int time);
+	void shutdown(int time);
 
-    void shutdownWorld(int time);
+	void shutdownWorld(int time);
 
-    String getServerMessage();
+	String getServerMessage();
 
-    void setServerMessage(String newMessage);
+	void setServerMessage(String newMessage);
 
-    int getChannel();
+	int getChannel();
 
-    int getExpRate();
+	int getExpRate();
 
-    int getMesoRate();
+	int getMesoRate();
 
-    int getDropRate();
+	int getDropRate();
 
-    int getBossDropRate();
+	int getBossDropRate();
 
-    int getPetExpRate();
+	int getPetExpRate();
 
-    void setExpRate(int expRate);
+	void setExpRate(int expRate);
 
-    void setMesoRate(int mesoRate);
+	void setMesoRate(int mesoRate);
 
-    void setDropRate(int dropRate);
+	void setDropRate(int dropRate);
 
-    void setBossDropRate(int bossDropRate);
+	void setBossDropRate(int bossDropRate);
 
-    void setPetExpRate(int petExpRate);
+	void setPetExpRate(int petExpRate);
 
-    int getConnectedClients();
+	int getConnectedClients();
 
-    int getLoadedMaps();
+	int getLoadedMaps();
 }
