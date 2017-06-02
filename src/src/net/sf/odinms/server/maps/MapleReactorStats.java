@@ -3,6 +3,7 @@ package net.sf.odinms.server.maps;
 import java.awt.Point;
 import java.util.HashMap;
 import java.util.Map;
+
 import net.sf.odinms.tools.Pair;
 
 public class MapleReactorStats {

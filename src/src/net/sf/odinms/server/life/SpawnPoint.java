@@ -2,6 +2,7 @@ package net.sf.odinms.server.life;
 
 import java.awt.Point;
 import java.util.concurrent.atomic.AtomicInteger;
+
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.server.maps.MapleMap;
 

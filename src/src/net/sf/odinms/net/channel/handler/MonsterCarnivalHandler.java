@@ -1,6 +1,7 @@
 package net.sf.odinms.net.channel.handler;
 
 import java.awt.Point;
+
 import net.sf.odinms.client.MapleClient;
 import net.sf.odinms.net.AbstractMaplePacketHandler;
 import net.sf.odinms.server.life.MapleLifeFactory;

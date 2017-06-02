@@ -2,6 +2,7 @@ package net.sf.odinms.server.maps;
 
 import java.awt.Point;
 import java.awt.Rectangle;
+
 import net.sf.odinms.client.ISkill;
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.client.MapleClient;

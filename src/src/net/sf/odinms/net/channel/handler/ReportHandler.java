@@ -4,13 +4,14 @@ import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import net.sf.odinms.client.MapleClient;
-import net.sf.odinms.net.AbstractMaplePacketHandler;
-import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
+
 import net.sf.odinms.client.MapleCharacter;
+import net.sf.odinms.client.MapleClient;
 import net.sf.odinms.database.DatabaseConnection;
+import net.sf.odinms.net.AbstractMaplePacketHandler;
 import net.sf.odinms.net.world.remote.WorldChannelInterface;
 import net.sf.odinms.tools.MaplePacketCreator;
+import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
 
 public class ReportHandler extends AbstractMaplePacketHandler {
 

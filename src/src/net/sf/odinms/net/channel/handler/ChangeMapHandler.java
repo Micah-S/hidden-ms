@@ -1,6 +1,7 @@
 package net.sf.odinms.net.channel.handler;
 
 import java.net.InetAddress;
+
 import net.sf.odinms.client.MapleBuffStat;
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.client.MapleClient;

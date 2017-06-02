@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import net.sf.odinms.database.DatabaseConnection;
 import net.sf.odinms.server.MapleItemInformationProvider;
 import net.sf.odinms.server.movement.AbsoluteLifeMovement;

@@ -8,11 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.sf.odinms.client.MapleClient;
 import net.sf.odinms.server.TimerManager;
 import net.sf.odinms.tools.MaplePacketCreator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class LoginWorker implements Runnable {
 

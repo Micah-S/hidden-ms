@@ -2,6 +2,7 @@ package net.sf.odinms.net.channel.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import net.sf.odinms.client.IItem;
 import net.sf.odinms.client.MapleClient;
 import net.sf.odinms.client.MapleInventoryType;

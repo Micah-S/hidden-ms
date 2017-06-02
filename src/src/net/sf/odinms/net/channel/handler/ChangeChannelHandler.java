@@ -2,6 +2,7 @@ package net.sf.odinms.net.channel.handler;
 
 import java.net.InetAddress;
 import java.rmi.RemoteException;
+
 import net.sf.odinms.client.MapleBuffStat;
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.client.MapleClient;
@@ -10,10 +11,10 @@ import net.sf.odinms.net.channel.ChannelServer;
 import net.sf.odinms.net.world.MapleMessengerCharacter;
 import net.sf.odinms.net.world.remote.WorldChannelInterface;
 import net.sf.odinms.server.MapleTrade;
+import net.sf.odinms.server.PublicChatHandler;
 import net.sf.odinms.server.PlayerInteraction.HiredMerchant;
 import net.sf.odinms.server.PlayerInteraction.IPlayerInteractionManager;
 import net.sf.odinms.server.PlayerInteraction.MaplePlayerShop;
-import net.sf.odinms.server.PublicChatHandler;
 import net.sf.odinms.tools.MaplePacketCreator;
 import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
 

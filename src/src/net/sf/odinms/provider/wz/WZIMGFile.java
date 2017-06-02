@@ -6,11 +6,13 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.RandomAccessFile;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.sf.odinms.tools.data.input.GenericSeekableLittleEndianAccessor;
 import net.sf.odinms.tools.data.input.RandomAccessByteStream;
 import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class WZIMGFile {
 

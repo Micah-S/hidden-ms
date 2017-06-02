@@ -1,14 +1,15 @@
 package net.sf.odinms.net.mina;
 
-import net.sf.odinms.client.MapleClient;
-import net.sf.odinms.tools.MapleAESOFB;
-import net.sf.odinms.tools.MapleCustomEncryption;
 import org.apache.mina.common.ByteBuffer;
 import org.apache.mina.common.IoSession;
 import org.apache.mina.filter.codec.CumulativeProtocolDecoder;
 import org.apache.mina.filter.codec.ProtocolDecoderOutput;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import net.sf.odinms.client.MapleClient;
+import net.sf.odinms.tools.MapleAESOFB;
+import net.sf.odinms.tools.MapleCustomEncryption;
 
 public class MaplePacketDecoder extends CumulativeProtocolDecoder {
 

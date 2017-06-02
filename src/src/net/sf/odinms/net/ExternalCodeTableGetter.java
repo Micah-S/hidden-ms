@@ -6,9 +6,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Properties;
-import net.sf.odinms.tools.HexTool;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import net.sf.odinms.tools.HexTool;
 
 public class ExternalCodeTableGetter {
 

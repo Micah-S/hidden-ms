@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+
 import net.sf.odinms.client.Equip;
 import net.sf.odinms.client.IItem;
 import net.sf.odinms.client.MapleCharacter;

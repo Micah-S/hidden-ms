@@ -11,6 +11,10 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.sf.odinms.client.Equip;
 import net.sf.odinms.client.IEquip;
 import net.sf.odinms.client.IItem;
@@ -20,8 +24,6 @@ import net.sf.odinms.client.MapleInventoryType;
 import net.sf.odinms.database.DatabaseConnection;
 import net.sf.odinms.database.DatabaseException;
 import net.sf.odinms.tools.MaplePacketCreator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MapleStorage {
 

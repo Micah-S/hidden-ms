@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
 import net.sf.odinms.server.MapleItemInformationProvider;
 
 public class MapleInventory implements Iterable<IItem>, InventoryContainer {

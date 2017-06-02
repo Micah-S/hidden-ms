@@ -6,8 +6,9 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.Map.Entry;
+import java.util.Random;
+
 import net.sf.odinms.client.Equip;
 import net.sf.odinms.client.IItem;
 import net.sf.odinms.client.MapleClient;

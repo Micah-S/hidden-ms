@@ -1,6 +1,7 @@
 package net.sf.odinms.client;
 
 import java.io.Serializable;
+
 import net.sf.odinms.net.LongValueHolder;
 
 public enum MapleBuffStat implements LongValueHolder, Serializable {

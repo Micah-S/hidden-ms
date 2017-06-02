@@ -2,6 +2,7 @@ package net.sf.odinms.net.world;
 
 import java.awt.Point;
 import java.io.Serializable;
+
 import net.sf.odinms.client.MapleCharacter;
 
 public class MaplePartyCharacter implements Serializable {

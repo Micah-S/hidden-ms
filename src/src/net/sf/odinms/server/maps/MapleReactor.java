@@ -1,6 +1,7 @@
 package net.sf.odinms.server.maps;
 
 import java.awt.Rectangle;
+
 import net.sf.odinms.client.MapleClient;
 import net.sf.odinms.net.MaplePacket;
 import net.sf.odinms.scripting.reactor.ReactorScriptManager;

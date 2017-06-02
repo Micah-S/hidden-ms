@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+
 import net.sf.odinms.client.MapleClient;
 import net.sf.odinms.database.DatabaseConnection;
 import net.sf.odinms.tools.MaplePacketCreator;

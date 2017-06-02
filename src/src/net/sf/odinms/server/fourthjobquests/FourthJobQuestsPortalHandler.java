@@ -1,6 +1,7 @@
 package net.sf.odinms.server.fourthjobquests;
 
 import java.util.Collection;
+
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.client.MapleJob;
 import net.sf.odinms.client.messages.ServernoticeMapleClientMessageCallback;

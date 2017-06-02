@@ -3,6 +3,10 @@ package net.sf.odinms.net.channel.handler;
 import java.awt.Point;
 import java.util.List;
 import java.util.Random;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.sf.odinms.client.MapleClient;
 import net.sf.odinms.net.MaplePacket;
 import net.sf.odinms.server.life.MapleMonster;
@@ -14,8 +18,6 @@ import net.sf.odinms.server.movement.LifeMovementFragment;
 import net.sf.odinms.tools.MaplePacketCreator;
 import net.sf.odinms.tools.Pair;
 import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MoveLifeHandler extends AbstractMovementPacketHandler {
 

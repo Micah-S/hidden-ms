@@ -1,6 +1,7 @@
 package net.sf.odinms.net.world;
 
 import java.io.Serializable;
+
 import net.sf.odinms.client.MapleCharacter;
 
 public class MapleMessengerCharacter implements Serializable {

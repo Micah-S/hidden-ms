@@ -1,6 +1,7 @@
 package net.sf.odinms.client.messages.commands;
 
 import java.util.HashMap;
+
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.client.MapleClient;
 import net.sf.odinms.client.messages.Command;

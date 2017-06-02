@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import net.sf.odinms.client.Equip;
 import net.sf.odinms.client.IItem;
 import net.sf.odinms.client.MapleCharacter;

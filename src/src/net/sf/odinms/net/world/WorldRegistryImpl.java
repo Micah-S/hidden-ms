@@ -21,8 +21,13 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
+
 import javax.rmi.ssl.SslRMIClientSocketFactory;
 import javax.rmi.ssl.SslRMIServerSocketFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.sf.odinms.database.DatabaseConnection;
 import net.sf.odinms.net.MaplePacket;
 import net.sf.odinms.net.channel.remote.ChannelWorldInterface;
@@ -33,8 +38,6 @@ import net.sf.odinms.net.world.guild.MapleGuildCharacter;
 import net.sf.odinms.net.world.remote.WorldChannelInterface;
 import net.sf.odinms.net.world.remote.WorldLoginInterface;
 import net.sf.odinms.net.world.remote.WorldRegistry;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class WorldRegistryImpl extends UnicastRemoteObject implements WorldRegistry {
 

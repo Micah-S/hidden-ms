@@ -5,6 +5,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.sf.odinms.provider.MapleData;
 import net.sf.odinms.provider.MapleDataDirectoryEntry;
 import net.sf.odinms.provider.MapleDataFileEntry;
@@ -15,8 +19,6 @@ import net.sf.odinms.tools.data.input.InputStreamByteStream;
 import net.sf.odinms.tools.data.input.LittleEndianAccessor;
 import net.sf.odinms.tools.data.input.RandomAccessByteStream;
 import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class WZFile implements MapleDataProvider {
 

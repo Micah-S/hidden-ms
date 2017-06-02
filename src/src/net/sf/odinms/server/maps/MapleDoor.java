@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.client.MapleClient;
 import net.sf.odinms.net.world.MaplePartyCharacter;

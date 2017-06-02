@@ -1,6 +1,7 @@
 package net.sf.odinms.net.channel.handler;
 
 import java.util.Arrays;
+
 import net.sf.odinms.client.MapleClient;
 import net.sf.odinms.net.AbstractMaplePacketHandler;
 import net.sf.odinms.server.maps.MapleMapObjectType;

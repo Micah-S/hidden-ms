@@ -5,15 +5,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.client.MapleClient;
 import net.sf.odinms.database.DatabaseConnection;
 import net.sf.odinms.net.AbstractMaplePacketHandler;
+import net.sf.odinms.net.world.guild.MapleGuild;
 import net.sf.odinms.tools.MaplePacketCreator;
 import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
-import net.sf.odinms.net.world.guild.MapleGuild;
 
 public class BBSOperationHandler extends AbstractMaplePacketHandler {
 

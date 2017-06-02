@@ -1,6 +1,7 @@
 package net.sf.odinms.net.channel.handler;
 
 import java.util.ArrayList;
+
 import net.sf.odinms.client.MapleClient;
 import net.sf.odinms.net.AbstractMaplePacketHandler;
 import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;

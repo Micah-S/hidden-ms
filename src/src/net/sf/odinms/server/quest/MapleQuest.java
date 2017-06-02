@@ -9,6 +9,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.client.MapleQuestStatus;
 import net.sf.odinms.client.MapleQuestStatus.Status;
@@ -16,8 +20,6 @@ import net.sf.odinms.provider.MapleData;
 import net.sf.odinms.provider.MapleDataProvider;
 import net.sf.odinms.provider.MapleDataProviderFactory;
 import net.sf.odinms.provider.MapleDataTool;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MapleQuest {
 

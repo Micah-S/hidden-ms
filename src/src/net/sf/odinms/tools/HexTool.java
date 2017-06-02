@@ -1,6 +1,7 @@
 package net.sf.odinms.tools;
 
 import java.io.ByteArrayOutputStream;
+
 import org.apache.mina.common.ByteBuffer;
 
 public class HexTool {

@@ -1,7 +1,6 @@
 package net.sf.odinms.tools.data.input;
 
 import java.io.IOException;
-import net.sf.odinms.tools.HexTool;
 
 public class ByteArrayByteStream implements SeekableInputStreamBytestream {
 

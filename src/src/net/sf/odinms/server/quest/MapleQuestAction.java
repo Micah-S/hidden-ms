@@ -3,6 +3,7 @@ package net.sf.odinms.server.quest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+
 import net.sf.odinms.client.ISkill;
 import net.sf.odinms.client.InventoryException;
 import net.sf.odinms.client.MapleCharacter;

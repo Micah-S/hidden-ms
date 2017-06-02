@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
+
 import net.sf.odinms.client.BuddylistEntry;
 import net.sf.odinms.client.CharacterNameAndId;
 import net.sf.odinms.client.MapleCharacter;

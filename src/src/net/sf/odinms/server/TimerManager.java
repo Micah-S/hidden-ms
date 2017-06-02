@@ -6,11 +6,14 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
-import net.sf.odinms.client.messages.MessageCallback;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import net.sf.odinms.client.messages.MessageCallback;
 
 public class TimerManager implements TimerManagerMBean {
 

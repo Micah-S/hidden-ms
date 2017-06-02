@@ -3,9 +3,10 @@ package net.sf.odinms.server;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 import net.sf.odinms.client.LoginCrypto;
-import net.sf.odinms.net.login.LoginServer;
 import net.sf.odinms.database.DatabaseConnection;
+import net.sf.odinms.net.login.LoginServer;
 
 public class AutoRegister {
 

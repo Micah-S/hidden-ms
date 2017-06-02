@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
+
 import net.sf.odinms.tools.HexTool;
 
 public class LoginCrypto {

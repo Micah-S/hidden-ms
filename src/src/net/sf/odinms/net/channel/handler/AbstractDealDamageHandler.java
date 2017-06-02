@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import net.sf.odinms.client.ISkill;
 import net.sf.odinms.client.MapleBuffStat;
 import net.sf.odinms.client.MapleCharacter;

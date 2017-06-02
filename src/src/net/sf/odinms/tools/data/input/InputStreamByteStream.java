@@ -2,6 +2,7 @@ package net.sf.odinms.tools.data.input;
 
 import java.io.IOException;
 import java.io.InputStream;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

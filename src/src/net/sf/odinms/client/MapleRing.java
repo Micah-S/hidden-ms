@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import net.sf.odinms.database.DatabaseConnection;
 import net.sf.odinms.server.MapleInventoryManipulator;
 import net.sf.odinms.server.TimerManager;

@@ -2,6 +2,7 @@ package net.sf.odinms.net.channel.handler;
 
 import java.awt.Point;
 import java.util.concurrent.ScheduledFuture;
+
 import net.sf.odinms.client.ISkill;
 import net.sf.odinms.client.MapleCharacter.CancelCooldownAction;
 import net.sf.odinms.client.MapleClient;

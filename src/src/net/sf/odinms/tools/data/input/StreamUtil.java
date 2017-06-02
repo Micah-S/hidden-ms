@@ -1,6 +1,7 @@
 package net.sf.odinms.tools.data.input;
 
 import java.awt.Point;
+
 import net.sf.odinms.tools.data.output.LittleEndianWriter;
 
 public class StreamUtil {

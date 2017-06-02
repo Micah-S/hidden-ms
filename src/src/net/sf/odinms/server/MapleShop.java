@@ -9,6 +9,10 @@ import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.sf.odinms.client.IItem;
 import net.sf.odinms.client.Item;
 import net.sf.odinms.client.MapleClient;
@@ -17,8 +21,6 @@ import net.sf.odinms.client.MaplePet;
 import net.sf.odinms.database.DatabaseConnection;
 import net.sf.odinms.net.PacketProcessor;
 import net.sf.odinms.tools.MaplePacketCreator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MapleShop {
 

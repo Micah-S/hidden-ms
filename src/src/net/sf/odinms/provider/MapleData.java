@@ -1,6 +1,7 @@
 package net.sf.odinms.provider;
 
 import java.util.List;
+
 import net.sf.odinms.provider.wz.MapleDataType;
 
 public interface MapleData extends MapleDataEntity, Iterable<MapleData> {

@@ -2,6 +2,7 @@ package net.sf.odinms.provider;
 
 import java.awt.Point;
 import java.awt.image.BufferedImage;
+
 import net.sf.odinms.provider.wz.MapleDataType;
 
 public class MapleDataTool {

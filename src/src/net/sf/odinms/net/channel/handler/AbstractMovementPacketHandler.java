@@ -3,6 +3,7 @@ package net.sf.odinms.net.channel.handler;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+
 import net.sf.odinms.net.AbstractMaplePacketHandler;
 import net.sf.odinms.server.maps.AnimatedMapleMapObject;
 import net.sf.odinms.server.movement.AbsoluteLifeMovement;

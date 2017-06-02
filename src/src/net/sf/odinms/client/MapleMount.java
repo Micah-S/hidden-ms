@@ -1,6 +1,7 @@
 package net.sf.odinms.client;
 
 import java.util.concurrent.ScheduledFuture;
+
 import net.sf.odinms.server.TimerManager;
 import net.sf.odinms.tools.MaplePacketCreator;
 

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.client.MapleDisease;
 import net.sf.odinms.client.status.MonsterStatus;

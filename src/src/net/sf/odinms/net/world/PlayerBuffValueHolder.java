@@ -1,6 +1,7 @@
 package net.sf.odinms.net.world;
 
 import java.io.Serializable;
+
 import net.sf.odinms.server.MapleStatEffect;
 
 public class PlayerBuffValueHolder implements Serializable {

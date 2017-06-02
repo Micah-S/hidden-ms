@@ -1,23 +1,30 @@
 package net.sf.odinms.net.channel.handler;
 
 import java.rmi.RemoteException;
-import net.sf.odinms.client.*;
-import net.sf.odinms.net.AbstractMaplePacketHandler;
-import net.sf.odinms.net.channel.ChannelServer;
-import net.sf.odinms.net.world.remote.WorldChannelInterface;
-import net.sf.odinms.server.MTSItemInfo;
-import net.sf.odinms.tools.MaplePacketCreator;
-import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
-import net.sf.odinms.database.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
-import net.sf.odinms.server.maps.FakeCharacter;
-import net.sf.odinms.server.maps.SavedLocationType;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import net.sf.odinms.client.Equip;
+import net.sf.odinms.client.IItem;
+import net.sf.odinms.client.Item;
+import net.sf.odinms.client.MapleBuffStat;
+import net.sf.odinms.client.MapleClient;
+import net.sf.odinms.database.DatabaseConnection;
+import net.sf.odinms.net.AbstractMaplePacketHandler;
+import net.sf.odinms.net.channel.ChannelServer;
+import net.sf.odinms.net.world.remote.WorldChannelInterface;
+import net.sf.odinms.server.MTSItemInfo;
+import net.sf.odinms.server.maps.FakeCharacter;
+import net.sf.odinms.server.maps.SavedLocationType;
+import net.sf.odinms.tools.MaplePacketCreator;
+import net.sf.odinms.tools.data.input.SeekableLittleEndianAccessor;
 
 public class EnterMTSHandler extends AbstractMaplePacketHandler {
 

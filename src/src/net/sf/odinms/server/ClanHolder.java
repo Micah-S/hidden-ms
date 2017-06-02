@@ -8,6 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.database.DatabaseConnection;
 

@@ -1,6 +1,7 @@
 package net.sf.odinms.net.channel.handler;
 
 import java.util.concurrent.ScheduledFuture;
+
 import net.sf.odinms.client.ISkill;
 import net.sf.odinms.client.MapleBuffStat;
 import net.sf.odinms.client.MapleCharacter;

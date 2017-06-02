@@ -1,6 +1,7 @@
 package net.sf.odinms.client.status;
 
 import java.io.Serializable;
+
 import net.sf.odinms.net.IntValueHolder;
 
 public enum MonsterStatus implements IntValueHolder, Serializable {

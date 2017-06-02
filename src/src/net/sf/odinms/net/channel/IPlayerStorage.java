@@ -1,6 +1,7 @@
 package net.sf.odinms.net.channel;
 
 import java.util.Collection;
+
 import net.sf.odinms.client.MapleCharacter;
 
 public interface IPlayerStorage {

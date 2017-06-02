@@ -1,6 +1,7 @@
 package net.sf.odinms.net.channel.handler;
 
 import java.rmi.RemoteException;
+
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.client.MapleClient;
 import net.sf.odinms.net.AbstractMaplePacketHandler;

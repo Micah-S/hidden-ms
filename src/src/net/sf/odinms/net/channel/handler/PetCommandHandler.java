@@ -1,6 +1,7 @@
 package net.sf.odinms.net.channel.handler;
 
 import java.util.Random;
+
 import net.sf.odinms.client.ExpTable;
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.client.MapleClient;

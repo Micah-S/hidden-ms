@@ -6,16 +6,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import javax.rmi.ssl.SslRMIClientSocketFactory;
 import javax.rmi.ssl.SslRMIServerSocketFactory;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import net.sf.odinms.client.BuddyList;
+import net.sf.odinms.client.BuddyList.BuddyAddResult;
+import net.sf.odinms.client.BuddyList.BuddyOperation;
 import net.sf.odinms.client.BuddylistEntry;
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.client.MapleCharacterUtil;
-import net.sf.odinms.client.BuddyList.BuddyAddResult;
-import net.sf.odinms.client.BuddyList.BuddyOperation;
 import net.sf.odinms.client.MaplePet;
 import net.sf.odinms.database.DatabaseConnection;
 import net.sf.odinms.net.ByteArrayMaplePacket;

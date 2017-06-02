@@ -1,6 +1,7 @@
 package net.sf.odinms.server;
 
 import java.awt.Point;
+
 import net.sf.odinms.client.MapleClient;
 
 public interface MaplePortal {
