@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="dist/exttools.jar"/>
+	<classpathentry kind="lib" path="dist/jpcap.jar"/>
+	<classpathentry kind="lib" path="dist/mina-core.jar"/>
+	<classpathentry kind="lib" path="dist/mysql-connector-java-bin.jar"/>
+	<classpathentry kind="lib" path="dist/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="dist/slf4j-jdk14.jar"/>
+	<classpathentry kind="lib" path="dist/XiuzSource.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
