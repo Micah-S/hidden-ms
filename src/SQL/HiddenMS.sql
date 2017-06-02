@@ -1,6 +1,4 @@
 -- ------------------------------------------------------
--- XiuzSource: v62 By. XiuzSu
--- ------------------------------------------------------
 --
 -- MySQL Administrator dump 1.4
 --
@@ -19,11 +17,11 @@
 
 
 --
--- Create schema XiuzSource
+-- Create schema HiddenMS
 --
 
-CREATE DATABASE IF NOT EXISTS XiuzSource;
-USE XiuzSource;
+CREATE DATABASE IF NOT EXISTS hiddenms;
+USE hiddenms;
 
 --
 -- Temporary table structure for view `readable_cheatlog`
@@ -110,7 +108,7 @@ CREATE TABLE `accounts` (
 
 /*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
 INSERT INTO `accounts` (`id`,`name`,`password`,`salt`,`loggedin`,`lastlogin`,`createdat`,`birthday`,`banned`,`banreason`,`gm`,`email`,`emailcode`,`forumaccid`,`macs`,`lastknownip`,`lastpwemail`,`tempban`,`greason`,`paypalNX`,`mPoints`,`cardNX`,`donorPoints`,`guest`,`LastLoginInMilliseconds`) VALUES 
- (1,'Admin','XiuzSource',NULL,0,'2009-09-04 12:53:57','2009-09-04 12:48:01','0000-00-00',0,NULL,0,'no@email.provided',NULL,0,'00-1E-68-7C-8E-CF','127.0.0.1','2002-12-31 17:00:00','0000-00-00 00:00:00',NULL,0,0,0,0,0,1252093987680);
+ (1,'Admin','admin',NULL,0,'2009-09-04 12:53:57','2009-09-04 12:48:01','0000-00-00',0,NULL,0,'no@email.provided',NULL,0,'00-1E-68-7C-8E-CF','127.0.0.1','2002-12-31 17:00:00','0000-00-00 00:00:00',NULL,0,0,0,0,0,1252093987680);
 /*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
 
 
@@ -404,7 +402,7 @@ CREATE TABLE `characters` (
 
 /*!40000 ALTER TABLE `characters` DISABLE KEYS */;
 INSERT INTO `characters` (`id`,`accountid`,`world`,`name`,`level`,`exp`,`str`,`dex`,`luk`,`int`,`hp`,`mp`,`maxhp`,`maxmp`,`meso`,`hpApUsed`,`mpApUsed`,`job`,`skincolor`,`gender`,`fame`,`hair`,`face`,`ap`,`sp`,`map`,`spawnpoint`,`gm`,`party`,`buddyCapacity`,`createdate`,`rank`,`rankMove`,`jobRank`,`jobRankMove`,`guildid`,`guildrank`,`allianceRank`,`messengerid`,`messengerposition`,`reborns`,`pvpkills`,`pvpdeaths`,`clan`,`mountlevel`,`mountexp`,`mounttiredness`,`married`,`partnerid`,`cantalk`,`zakumlvl`,`marriagequest`,`omok`,`matchcard`,`omokwins`,`omoklosses`,`omokties`,`matchcardwins`,`matchcardlosses`,`matchcardties`,`MerchantMesos`,`HasMerchant`,`gmtext`) VALUES 
- (30001,1,0,'XiuzSource',1,0,4,4,4,4,50,5,50,5,0,0,0,0,0,0,0,30030,20000,9,0,0,0,0,-1,20,'2009-09-04 12:53:38',1,0,1,0,0,5,5,0,4,0,0,0,-1,1,0,0,0,0,1,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0);
+ (30001,1,0,'Admin',1,0,4,4,4,4,50,5,50,5,0,0,0,0,0,0,0,30030,20000,9,0,0,0,0,-1,20,'2009-09-04 12:53:38',1,0,1,0,0,5,5,0,4,0,0,0,-1,1,0,0,0,0,1,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0);
 /*!40000 ALTER TABLE `characters` ENABLE KEYS */;
 
 
