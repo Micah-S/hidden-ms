@@ -1,9 +1,10 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* Author: Xterminator
 	NPC Name: 		Regular Cab
 	Map(s): 		Victoria Road : Perion (102000000)
 	Description: 		Perion Cab
 */
-importPackage(net.sf.odinms.client);
+importPackage(Packages.net.sf.odinms.client);
 
 var status = 0;
 var maps = Array(104000000, 100000000, 101000000, 103000000, 120000000);

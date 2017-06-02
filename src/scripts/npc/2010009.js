@@ -1,4 +1,5 @@
-importPackage(net.sf.odinms.net.world.guild);
+engine.eval("load('nashorn:mozilla_compat.js');");
+importPackage(Packages.net.sf.odinms.net.world.guild);
 
 var status;
 var choice;

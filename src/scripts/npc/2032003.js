@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -55,7 +56,7 @@
  			cm.gainItem(4031062,1);
  			cm.warp(211042300);
  			// if this is their first time, exp gain
- 			if (cm.getQuestStatus(100202) != net.sf.odinms.client.MapleQuestStatus.Status.COMPLETED) {
+ 			if (cm.getQuestStatus(100202) != Packages.net.sf.odinms.client.MapleQuestStatus.Status.COMPLETED) {
  				cm.startQuest(100202);
  				cm.completeQuest(100202);
  				cm.gainExp(10000);

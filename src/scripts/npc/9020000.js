@@ -32,7 +32,7 @@
 var status;
 var minLevel = 10;
 var maxLevel = 255;
-var minPlayers = 3;
+var minPlayers = 1;
 var maxPlayers = 6;
 
 function start() {
@@ -77,7 +77,7 @@ function action(mode, type, selection) {
                     cm.sendOk("This PQ is not currently available.");
                 } else if (em.getProperty("KPQOpen").equals("true")) {
                     // Begin the PQ.
-                    em.startInstance(cm.getParty(), cm.getPlayer().getMap());
+                    em.startInstance(cm.getParty(), cm.getChar().getMap());
                     // Remove Passes and Coupons
                     party = cm.getChar().getEventInstance().getPlayers();
                     cm.removeFromParty(4001008, party);

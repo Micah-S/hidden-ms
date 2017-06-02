@@ -29,3 +29,7 @@ function start() {
 	cm.changeMusic("Bgm14/Ariant");
 	cm.dipose();
 }
+
+function action(){
+	
+}

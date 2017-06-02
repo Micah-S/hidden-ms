@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /**
 -- Odin JavaScript --------------------------------------------------------------------------------
 	VIP Cab - Victoria Road : Lith Harbor (104000000)
@@ -30,7 +31,7 @@ function action(mode, type, selection) {
         else
             status--;
         if (status == 1) {
-            if (cm.getJob().equals(net.sf.odinms.client.MapleJob.BEGINNER))
+            if (cm.getJob().equals(Packages.net.sf.odinms.client.MapleJob.BEGINNER))
                 cm.sendYesNo("We have a special 90% discount for beginners. The Ant Tunnel is located deep inside in the dungeon that's placed at the center of the Victoria Island, where the 24 Hr Mobile Store is. Would you like to go there for #b1,000 mesos#k?");
             else {
                 cm.sendYesNo("The regular fee applies for all non-beginners. The Ant Tunnel is located deep inside in the dungeon that's placed at the center of the Victoria Island, where 24 Hr Mobile Store is. Would you like to go there for #b10,000 mesos#k?");

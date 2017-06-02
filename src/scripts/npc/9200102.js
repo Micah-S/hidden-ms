@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /**
   High Priest John - 9201002.js
 -- Original Author --------------------------------------------------------------------------------
@@ -6,8 +7,8 @@
 	XoticMS.
 ---------------------------------------------------------------------------------------------------
  **/
-importPackage(net.sf.odinms.client);
-importPackage(net.sf.odinms.server);
+importPackage(Packages.net.sf.odinms.client);
+importPackage(Packages.net.sf.odinms.server);
 
 var status;
 var minLevel = 10;
@@ -15,7 +16,7 @@ var maxLevel = 200;
 var mySelection = -1;
 var rings = Array(1112001, 1112002, 1112003, 1112005, 1112006);
 
-importPackage(net.sf.odinms.tools);
+importPackage(Packages.net.sf.odinms.tools);
 
 function start() {
     status = -1;

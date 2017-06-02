@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -19,8 +20,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-importPackage(net.sf.odinms.client);
-importPackage(net.sf.odinms.server.life);
+importPackage(Packages.net.sf.odinms.client);
+importPackage(Packages.net.sf.odinms.server.life);
 
 function init() {
 }
@@ -110,7 +111,7 @@ function allMonstersDead(eim) {
 	eim.schedule("warpOut", 120000);
 	var mob = MapleLifeFactory.getMonster(monsterId);
 	em.getChannelServer().broadcastPacket( 
-		net.sf.odinms.tools.MaplePacketCreator.serverNotice(6, "[Event] " + winner.getName() + " defeated " + mob.getName() + "!"));
+		Packages.net.sf.odinms.tools.MaplePacketCreator.serverNotice(6, "[Event] " + winner.getName() + " defeated " + mob.getName() + "!"));
 }
 
 function cancelSchedule() {
@@ -141,4 +142,8 @@ function disbandParty(eim, player) {
 
 function dispose() {
 
+}
+
+function action(){
+	
 }

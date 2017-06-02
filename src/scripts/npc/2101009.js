@@ -29,3 +29,7 @@ function start() {
 	cm.sendNext("Yawnnnn~!");
 	cm.dispose();
 }
+
+function action(){
+	
+}

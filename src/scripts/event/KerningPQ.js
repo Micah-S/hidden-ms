@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* 
  * This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -37,7 +38,7 @@ INSERT monsterdrops (monsterid,itemid,chance) VALUES (9300002,4001008,1);
 INSERT monsterdrops (monsterid,itemid,chance) VALUES (9300003,4001008,1);
 */
 
-importPackage(net.sf.odinms.world);
+importPackage(Packages.net.sf.odinms.world);
 
 var exitMap;
 var minPlayers = 4;

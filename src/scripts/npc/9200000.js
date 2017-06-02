@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
  * Cody NPC 9200000
  * @Author XoticStory.
@@ -39,7 +40,7 @@ function action(mode, type, selection) {
 	    }
 	} else {
 		if (status == 0) {
-			if (cm.getJob().equals(net.sf.odinms.client.MapleJob.BEGINNER)) {
+			if (cm.getJob().equals(Packages.net.sf.odinms.client.MapleJob.BEGINNER)) {
 				if (cm.getLevel() >= 8)
 					possibleJobs.push(200);
 				if (cm.getLevel() >= 10) {

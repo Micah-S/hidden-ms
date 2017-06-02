@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* 
  * This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -26,11 +27,11 @@
  * 
  * Wedding for odinMS
  */
-importPackage(java.lang);
+importPackage(Packages.java.lang);
 
-importPackage(net.sf.odinms.world);
-importPackage(net.sf.odinms.client);
-importPackage(net.sf.odinms.server.maps);
+importPackage(Packages.net.sf.odinms.world);
+importPackage(Packages.net.sf.odinms.client);
+importPackage(Packages.net.sf.odinms.server.maps);
 
 var exitMap;
 var altarMap;
@@ -74,9 +75,9 @@ function playerEntry(eim, player) {
 	player.changeMap(map, map.getPortal(0));
 	
 	//1st - 20 min 2nd - 5 min 3rd 5 min xD
-	//player.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.getClock(1200));
-	//player.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.getClock(180));
-	player.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.getClock((Long.parseLong(eim.getProperty("entryTimestamp")) - System.currentTimeMillis()) / 1000));
+	//player.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.getClock(1200));
+	//player.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.getClock(180));
+	player.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.getClock((Long.parseLong(eim.getProperty("entryTimestamp")) - System.currentTimeMillis()) / 1000));
 }
 
 //lets forget this bullshit...
@@ -105,17 +106,17 @@ function playerExit(eim, player) {
 function playerWarpAltar(eim, player) {
 	if ((player.getName() != eim.getProperty("husband")) && (player.getName() != eim.getProperty("wife"))){
 	player.changeMap(altarMap, altarMap.getPortal(0));
-	player.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.getClock(300));
+	player.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.getClock(300));
 	}else{
 	player.changeMap(altarMap, altarMap.getPortal(2));
-	player.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.getClock(300));
-	player.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.serverNotice(6, "Please talk to High Priest John now!"));
+	player.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.getClock(300));
+	player.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.serverNotice(6, "Please talk to High Priest John now!"));
 	}
 }
 
 function playerWarpCake(eim, player) {
 	player.changeMap(cakeMap, cakeMap.getPortal(0));
-	player.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.getClock(300));
+	player.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.getClock(300));
 }
 
 function playerAltar(eim, player) {

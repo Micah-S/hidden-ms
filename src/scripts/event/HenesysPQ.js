@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* 
  * This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -49,11 +50,11 @@
  */
 
 
-importPackage(net.sf.odinms.world);
+importPackage(Packages.net.sf.odinms.world);
 
 var exitMap;
 var instanceId;
-var minPlayers = 3;
+var minPlayers = 1;
 var pqTime = 600;//10 Minutes
 
 function init() {

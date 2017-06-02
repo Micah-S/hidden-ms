@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -56,7 +57,7 @@ function action(mode, type, selection) {
 		} else {
 			status--;
 		}
-		if(cm.getQuestStatus(3230).getId() == net.sf.odinms.client.MapleQuestStatus.Status.STARTED.getId()) {
+		if(cm.getQuestStatus(3230).getId() == Packages.net.sf.odinms.client.MapleQuestStatus.Status.STARTED.getId()) {
 			if(status == 0) {
 				cm.sendYesNo("Hmmm...I've heard a lot about you through #b#p2040001##k. You got him a bunch of #b#t4031093##k so he can fight off boredom at work. Well ... alright, then. There's a dangerous, dangerous monster inside. I want to ask you for help in regards to locating it. Would you like to help me out?");
 			} else if(status == 1) {
@@ -79,7 +80,7 @@ function action(mode, type, selection) {
 				}
 				cm.dispose();
 			}
-		} else if(cm.getQuestStatus(3230).getId() == net.sf.odinms.client.MapleQuestStatus.Status.COMPLETED) {
+		} else if(cm.getQuestStatus(3230).getId() == Packages.net.sf.odinms.client.MapleQuestStatus.Status.COMPLETED) {
 			cm.sendNext("Thanks to #h #, we got the #b#t4031094##k back and destroyed the monster from the other dimension. Thankfully we haven't found one like that since. I can't thank you enough for helping us out. Hope you enjoy your stay here at #m220000000#!");
 			cm.dispose();
 		} else {

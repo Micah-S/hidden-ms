@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* 
  * This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -26,7 +27,7 @@
  * Guild Quest Stage 3
  */
 
-importPackage(net.sf.odinms.server.maps);
+importPackage(Packages.net.sf.odinms.server.maps);
 
 function start() {
         //everything can be done in one status, so let's do it here.
@@ -60,8 +61,8 @@ function start() {
                                                                 cm.getGuild().gainGP(25);
                                                         }
                                                 } else {
-                                                        var black = net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300036);
-                                                        var myst = net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300037);
+                                                        var black = Packages.net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300036);
+                                                        var myst = Packages.net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300037);
                                                         if (attempt < 7) {
                                                                 //cm.playerMessage("Combo : " + combo);
                                                                 //cm.playerMessage("Guess : " + guess);
@@ -121,8 +122,8 @@ function start() {
 
                                                                 for (var i = 0; i < 5; i++) {
                                                                         //keep getting new monsters, lest we spawn the same monster five times o.o!
-                                                                        black = net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300036);
-                                                                        myst = net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300037);
+                                                                        black = Packages.net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300036);
+                                                                        myst = Packages.net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300037);
                                                                         cm.getPlayer().getMap().spawnMonsterOnGroundBelow(black, new java.awt.Point(randX(), 150));
                                                                         cm.getPlayer().getMap().spawnMonsterOnGroundBelow(myst, new java.awt.Point(randX(), 150));
                                                                 }

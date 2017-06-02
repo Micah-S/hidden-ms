@@ -1,9 +1,10 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* Author: Xterminator
 	NPC Name: 		Pison
 	Map(s): 		Victoria Road : Lith Harbor (104000000)
 	Description: 		Florina Beach Tour Guide
 */
-importPackage(net.sf.odinms.server.maps);
+importPackage(Packages.net.sf.odinms.server.maps);
 
 var status = 0;
 

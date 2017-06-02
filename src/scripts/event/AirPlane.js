@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -30,7 +31,7 @@
 ---------------------------------------------------------------------------------------------------
 **/
 
-importPackage(net.sf.odinms.tools);
+importPackage(Packages.net.sf.odinms.tools);
 
 //Time Setting is in millisecond
 var closeTime = 240000; //The time to close the gate

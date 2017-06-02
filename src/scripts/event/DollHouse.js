@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -24,8 +25,8 @@
 	Hak, travel between Orbis, Mu Lung and Herb Town
 **/
 
-importPackage(net.sf.odinms.world);
-importPackage(net.sf.odinms.tools);
+importPackage(Packages.net.sf.odinms.world);
+importPackage(Packages.net.sf.odinms.tools);
 
 var returnMap;
 var map;
@@ -44,7 +45,7 @@ function playerEntry(eim, player) {
 	map.shuffleReactors();
 	em.setProperty("noEntry","true");
 	em.schedule("timeOut", 600000);
-	player.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.getClock(600));
+	player.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.getClock(600));
 }
 
 function playerExit(eim, player) {

@@ -33,3 +33,7 @@ function start() {
 	cm.getChar().getStorage().sendStorage(cm.getC(), 9120009);
 	cm.dispose();
 }
+
+function action(){
+	
+}

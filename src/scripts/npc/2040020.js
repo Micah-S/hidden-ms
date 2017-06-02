@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -28,7 +29,7 @@
 	* Price is 90% of locations on same items
 */
 
-importPackage(net.sf.odinms.client);
+importPackage(Packages.net.sf.odinms.client);
 
 var status = 0;
 var selectedType = -1;
@@ -306,9 +307,9 @@ function action(mode, type, selection) {
 					var deleted = Math.floor(Math.random() * 10);
 					if (deleted != 0)
 					{
-						var ii = net.sf.odinms.server.MapleItemInformationProvider.getInstance();
+						var ii = Packages.net.sf.odinms.server.MapleItemInformationProvider.getInstance();
 						var newItem = ii.randomizeStats(ii.getEquipById(item));
-						net.sf.odinms.server.MapleInventoryManipulator.addFromDrop(cm.getC(), newItem, "Created " + item  + " at Sarah (2040020, map 220000303) using a stimulator");
+						Packages.net.sf.odinms.server.MapleInventoryManipulator.addFromDrop(cm.getC(), newItem, "Created " + item  + " at Sarah (2040020, map 220000303) using a stimulator");
 						cm.sendOk("There, the gloves are ready. Be careful, they're still hot.");
 					}
 					else

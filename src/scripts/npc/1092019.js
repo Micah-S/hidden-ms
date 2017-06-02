@@ -35,3 +35,8 @@ function start() {
 		cm.sendOk("Who are you talking to me? If you're just bored, go bother somebody else.");
 		cm.dispose();
 }
+
+
+function action(){
+	
+}

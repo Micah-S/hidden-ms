@@ -35,3 +35,8 @@ function start() {
     cm.sendOk("Zzzz..");
     cm.dispose();
 }
+
+
+function action(){
+	
+}

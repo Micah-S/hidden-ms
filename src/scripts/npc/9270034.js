@@ -30,3 +30,7 @@ function start() {
 	cm.sendOk ("Students, you better study! How can I help you honey?");
 	cm.dispose();
 }
+
+function action(){
+	
+}

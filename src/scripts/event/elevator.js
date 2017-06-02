@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -32,7 +33,7 @@
 ---------------------------------------------------------------------------------------------------
 **/
 
-importPackage(net.sf.odinms.scripting.reactor);
+importPackage(Packages.net.sf.odinms.scripting.reactor);
 var elevator_s;
 var elevator_m;
 var returnMap;

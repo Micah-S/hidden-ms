@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -30,7 +31,7 @@
 	1.0 - First Version by Information
 ---------------------------------------------------------------------------------------------------
 **/
-importPackage(net.sf.odinms.client);
+importPackage(Packages.net.sf.odinms.client);
 
 var mapid = new Array(200000110,200000120,200000130,200000140,200000150);
 var platform = new Array("Ellinia","Ludibrium","Leafre","Mu Lung","Ariant");

@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -22,7 +23,7 @@
 /*
 Kerning PQ: 2nd stage to 3rd stage portal
 */
-importPackage(net.sf.odinms.server.maps);
+importPackage(Packages.net.sf.odinms.server.maps);
 
 function enter(pi) {
 	var eim = pi.getPlayer().getEventInstance();

@@ -1,12 +1,10 @@
-/*
-Moose
-...
-Warps to exit
-*/
-
 function start() {
 
-cm.warp(221000300,"mid00");
+cm.sendNext("Hi there!");
+//cm.warp(221000300);
 cm.dispose();
 
+}
+function action(){
+	
 }

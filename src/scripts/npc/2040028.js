@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -34,7 +35,7 @@ var complete = false;
 var inQuest = false;
 
 function start() {
-	if(cm.getQuestStatus(3230).getId() == net.sf.odinms.client.MapleQuestStatus.Status.STARTED.getId()) {
+	if(cm.getQuestStatus(3230).getId() == Packages.net.sf.odinms.client.MapleQuestStatus.Status.STARTED.getId()) {
 		inQuest = true;
 	} else {
 		inQuest = false;

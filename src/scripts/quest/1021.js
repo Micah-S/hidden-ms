@@ -1,9 +1,10 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* Author: Xterminator (Modified by RMZero213)
 	NPC Name: 		Roger
 	Map(s): 		Maple Road : Lower level of the Training Camp (2)
 	Description: 		Quest - Roger's Apple
 */
-importPackage(net.sf.odinms.client);
+importPackage(Packages.net.sf.odinms.client);
 
 var status = -1;
 

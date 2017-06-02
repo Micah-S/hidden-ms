@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* Author: Xterminator
 	NPC Name: 		Bush
 	Map(s): 		Victoria Road : Nautilus Harbor (120000000)
@@ -20,7 +21,7 @@ function action(mode, type, selection) {
 		else
 			status--;
 		if (status == 0) {
-			if (cm.getQuestStatus(2186).equals(net.sf.odinms.client.MapleQuestStatus.Status.STARTED)) {
+			if (cm.getQuestStatus(2186).equals(Packages.net.sf.odinms.client.MapleQuestStatus.Status.STARTED)) {
 				var rand = Math.floor(Math.random() * 2);
 				if (rand == 0 && !cm.haveItem(4031853)) {
 					item = 4031853;

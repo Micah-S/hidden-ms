@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -29,8 +30,8 @@
 ---------------------------------------------------------------------------------------------------
 **/
 
-importPackage(net.sf.odinms.tools);
-importPackage(java.awt);
+importPackage(Packages.net.sf.odinms.tools);
+importPackage(Packages.java.awt);
 
 var status;
 var curMap;
@@ -43,13 +44,13 @@ var questions = Array("Here's the question. Collect the same number of coupons a
 var qanswers = Array(10, 35, 20, 25, 25, 30);
 var party;
 var preamble; // we dont even need this mother fucker ! --
-var stage2Rects = Array(Rectangle(-755,-132,4,218),Rectangle(-721,-340,4,166),Rectangle(-586,-326,4,150),Rectangle(-483,-181,4,222));
-var stage3Rects = Array(Rectangle(608,-180,140,50),Rectangle(791,-117,140,45),
- 	                        Rectangle(958,-180,140,50),Rectangle(876,-238,140,45),
- 	                        Rectangle(702,-238,140,45));
-var stage4Rects = Array(Rectangle(910,-236,35,5),Rectangle(877,-184,35,5),
- 	                        Rectangle(946,-184,35,5),Rectangle(845,-132,35,5),
- 	                        Rectangle(910,-132,35,5),Rectangle(981,-132,35,5));
+//var stage2Rects = Array(Rectangle(-755,-132,4,218),Rectangle(-721,-340,4,166),Rectangle(-586,-326,4,150),Rectangle(-483,-181,4,222));
+//var stage3Rects = Array(Rectangle(608,-180,140,50),Rectangle(791,-117,140,45),
+// 	                        Rectangle(958,-180,140,50),Rectangle(876,-238,140,45),
+// 	                        Rectangle(702,-238,140,45));
+//var stage4Rects = Array(Rectangle(910,-236,35,5),Rectangle(877,-184,35,5),
+// 	                        Rectangle(946,-184,35,5),Rectangle(845,-132,35,5),
+// 	                        Rectangle(910,-132,35,5),Rectangle(981,-132,35,5));
 var stage2combos = Array(Array(0,1,1,1),Array(1,0,1,1),Array(1,1,0,1),Array(1,1,1,0));
 var stage3combos = Array(Array(0,0,1,1,1),Array(0,1,0,1,1),Array(0,1,1,0,1),
     Array(0,1,1,1,0),Array(1,0,0,1,1),Array(1,0,1,0,1),
@@ -192,7 +193,8 @@ function action(mode, type, selection) {
             }
         } // End first map scripts
     } else if (2 <= curMap && 4 >= curMap) {
-        rectanglestages(cm);
+
+		rectanglestages(cm);
     } else if (curMap == 5) { // Final stage
         var eim = cm.getChar().getEventInstance();
         var stage5done = eim.getProperty("5stageclear");
@@ -258,6 +260,13 @@ function rectanglestages (cm) {
     var curArray;
     var curCombo;
     var objset;
+	//skip stages 2-4
+	if (curMap >=2 && curMap <= 4) {
+		clear(curMap, eim, cm);
+        var exp = (Math.pow(2, curMap) * 50);
+        cm.givePartyExp(exp, party);
+	}
+	/*
     if (curMap == 2) {
         nthtext = "2nd";
         nthobj = "ropes";
@@ -283,6 +292,7 @@ function rectanglestages (cm) {
         curCombo = stage4combos;
         objset = [0,0,0,0,0,0];
     }
+	*/
     if (cm.isLeader()) { // Check if player is leader
         if (status == 0) {
             // Check for preamble
@@ -291,7 +301,7 @@ function rectanglestages (cm) {
             if (preamble == null) { // first time talking.
                 cm.sendNext("Hi. Welcome to the " + nthtext + " stage. Next to me, you'll see a number of " + nthobj + ". Out of these " + nthobj + ", #b3 are connected to the portal that sends you to the next stage#k. All you need to do is have #b3 party members find the correct " + nthobj + " and " + nthverb + " on them.#k\r\nBUT, it doesn't count as an answer if you " + nthpos + "; please be near the middle of the " + nthobj + " to be counted as a correct answer. Also, only 3 members of your party are allowed on the " + nthobj + ". Once they are " + nthverb + "ing on them, the leader of the party must #bdouble-click me to check and see if the answer's correct or not#k. Now, find the right " + nthobj + " to " + nthverb + " on!");
                 eim.setProperty("leader" + nthtext + "preamble","done");
-                var sequenceNum = Math.floor(Math.random() * curCombo.length);
+                //var sequenceNum = Math.floor(Math.random() * curCombo.length);
                 eim.setProperty("stage" + nthtext + "combo", sequenceNum.toString());
                 cm.dispose();
             } else {

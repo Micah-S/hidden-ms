@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	Serryl (1091003)
 	Location: The Nautilus
@@ -7,7 +8,7 @@
 	Author: xQuasar
 */
 
-importPackage(net.sf.odinms.client);
+importPackage(Packages.net.sf.odinms.client);
 
 function start() {
 	status = -1;

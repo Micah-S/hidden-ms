@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -40,19 +41,19 @@ function action(mode, type, selection) {
 		else
 			status--;
 		if (status == 0 && cm.getQuestStatus(100010) ==
-			net.sf.odinms.client.MapleQuestStatus.Status.STARTED) {
+			Packages.net.sf.odinms.client.MapleQuestStatus.Status.STARTED) {
 			status = 3;
 		}
 		if (status == 0) {
 			if (cm.getQuestStatus(100010) == 
-				net.sf.odinms.client.MapleQuestStatus.Status.COMPLETED) {
+				Packages.net.sf.odinms.client.MapleQuestStatus.Status.COMPLETED) {
 				cm.sendOk("You're truly a hero!");
 				cm.dispose();
 			} else if (cm.getQuestStatus(100009).getId() >=
-				net.sf.odinms.client.MapleQuestStatus.Status.STARTED.getId()) {
+				Packages.net.sf.odinms.client.MapleQuestStatus.Status.STARTED.getId()) {
 				cm.completeQuest(100009);
 				if (cm.getQuestStatus(100009) ==
-					net.sf.odinms.client.MapleQuestStatus.Status.COMPLETED) {
+					Packages.net.sf.odinms.client.MapleQuestStatus.Status.COMPLETED) {
 					cm.sendNext("Oh, isn't this a letter from the #bDark Lord#k?");
 				}
 			} else {

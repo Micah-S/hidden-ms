@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* Author: Xterminator
 	NPC Name: 		Bush
 	Map(s): 		Victoria Road : Nautilus Harbor (120000000)
@@ -7,7 +8,7 @@ var status = 0;
 var item;
 
 function start() {
-    if (cm.getQuestStatus(2186).equals(net.sf.odinms.client.MapleQuestStatus.Status.STARTED)) {
+    if (cm.getQuestStatus(2186).equals(Packages.net.sf.odinms.client.MapleQuestStatus.Status.STARTED)) {
         var rand = Math.floor(Math.random() * 2);
         if (rand == 0 && !cm.haveItem(4031853))
             item = 4031853;
@@ -22,4 +23,8 @@ function start() {
             cm.sendOk("I found a pair of glasses, but it doesn't seem to be Abel's. Abel's pair is horn-rimmed...");
     }
     cm.dispose();
+}
+
+function action(){
+	
 }

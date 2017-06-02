@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -53,7 +54,7 @@ function action(mode, type, selection) {
 	if (status == 0) {
 		cm.sendNext("Hi there! This cab is for VIP customers only. Instead of just taking you to different towns like the regular cabs, we offer a much better service worthy of VIP class. It's a bit pricey, but... for only 10,000 mesos, we'll take you safely to the \r\n#bAnt Tunnel#k.");
 	} else if (status == 1) {
-		if (cm.getJob().equals(net.sf.odinms.client.MapleJob.BEGINNER)) {
+		if (cm.getJob().equals(Packages.net.sf.odinms.client.MapleJob.BEGINNER)) {
 			cm.sendYesNo("We have a special 90% discount for beginners. The Ant Tunnel is located deep inside in the dungeon that's placed at the center of the Victoria Island, where the 24 Hr Mobile Store is. Would you like to go there for #b1,000 mesos#k?");
 			cost = 1000;
 		} else {

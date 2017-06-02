@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* 
  * This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -53,7 +54,7 @@
 		if (status == 0) {
 			// req: 50+, completed quest (these shouldn't be in the map at all, actually)
 			  if ((cm.getPlayer().getLevel() < minLevel || 
-				cm.getQuestStatus(100200) != net.sf.odinms.client.MapleQuestStatus.Status.COMPLETED) && !cm.getPlayer().isGM()) {
+				cm.getQuestStatus(100200) != Packages.net.sf.odinms.client.MapleQuestStatus.Status.COMPLETED) && !cm.getPlayer().isGM()) {
 				// refuse to do so
 				 cm.warp(211042300);
 				cm.sendOk("Please come back when you're prepared for the battle.  You should not be here yet.");

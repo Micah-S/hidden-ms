@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -27,7 +28,7 @@
  * Guild Quest - end of boss
  */
 
-importPackage(java.lang);
+importPackage(Packages.java.lang);
 
 function start() {
         var eim = cm.getPlayer().getEventInstance();

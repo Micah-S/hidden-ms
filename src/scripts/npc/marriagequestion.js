@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /**
   Questions.
 -- Original Author --------------------------------------------------------------------------------
@@ -6,8 +7,8 @@
 	XoticMS.
 ---------------------------------------------------------------------------------------------------
 **/
-importPackage(net.sf.odinms.client);
-importPackage(net.sf.odinms.server);
+importPackage(Packages.net.sf.odinms.client);
+importPackage(Packages.net.sf.odinms.server);
 var status;
 var otherChar;
  

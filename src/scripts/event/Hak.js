@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -34,7 +35,7 @@
 ---------------------------------------------------------------------------------------------------
 **/
 
-importPackage(net.sf.odinms.tools);
+importPackage(Packages.net.sf.odinms.tools);
 
 var returnTo = new Array(200000141,250000100);
 var rideTo = new Array(250000100,200000141);

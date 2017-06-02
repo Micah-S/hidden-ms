@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* 
  * This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -28,10 +29,10 @@
 var exitMap;
 var minPlayers = 1;
  
-importPackage(net.sf.odinms.world);
-importPackage(net.sf.odinms.client);
-importPackage(net.sf.odinms.server.maps);
-importPackage(java.lang);
+importPackage(Packages.net.sf.odinms.world);
+importPackage(Packages.net.sf.odinms.client);
+importPackage(Packages.net.sf.odinms.server.maps);
+importPackage(Packages.java.lang);
 
 function init() {
         em.setProperty("shuffleReactors","false");
@@ -75,7 +76,7 @@ function playerDisconnected(eim,player) {
 		var iter = party.iterator();
 		while (iter.hasNext()) {
 			var pl = iter.next();
-			pl.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.serverNotice(6,"The leader of the instance has disconnected."));
+			pl.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.serverNotice(6,"The leader of the instance has disconnected."));
 		}
 	}
 	// and, if the party is too small
@@ -90,7 +91,7 @@ function monsterValue(eim,mobId) { // potentially display time of death? does no
 		var iter = party.iterator();
 		while (iter.hasNext()) {
 			var pl = iter.next();
-			pl.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.serverNotice(6,"Congratulations on defeating Zakum!"));
+			pl.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.serverNotice(6,"Congratulations on defeating Zakum!"));
 		}
 	}
 	return -1;
@@ -114,7 +115,7 @@ function end(eim,msg) {
         var iter = eim.getPlayers().iterator();
         while (iter.hasNext()) {
                 var player = iter.next();
-                player.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.serverNotice(6,msg));
+                player.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.serverNotice(6,msg));
 		eim.unregisterPlayer(player);
 		if (player != null)
                 	player.changeMap(exitMap, exitMap.getPortal(0));
@@ -156,7 +157,7 @@ function debug(eim,msg) {
         var iter = eim.getPlayers().iterator();
         while (iter.hasNext()) {
  		var player = iter.next();
- 		player.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.serverNotice(6,msg));
+ 		player.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.serverNotice(6,msg));
 	}
 }
 

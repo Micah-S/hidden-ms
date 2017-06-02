@@ -1,9 +1,10 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* Author: Xterminator
 	NPC Name: 		Regular Cab
 	Map(s): 		Victoria Road : Henesys (100000000)
 	Description: 		Henesys Cab
 */
-importPackage(net.sf.odinms.client);
+importPackage(Packages.net.sf.odinms.client);
 
 var status = 0;
 var maps = Array(104000000, 102000000, 101000000, 103000000, 120000000);

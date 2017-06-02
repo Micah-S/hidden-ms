@@ -1,8 +1,9 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
  Made by XiuzSu
  Credits to watzmename
 */
-importPackage(net.sf.odinms.server);
+importPackage(Packages.net.sf.odinms.server);
 
 var status;
 var choice;

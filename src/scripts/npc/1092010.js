@@ -30,3 +30,8 @@ function start() {
     cm.sendOk("(Scratch scratch...)");
     cm.dispose();
 }
+
+
+function action(){
+	
+}

@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* 
  * This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -51,8 +52,8 @@ INSERT INTO monsterdrops (`monsterid`,`itemid`,`chance`) VALUES ('9400216','4001
 INSERT INTO monsterdrops (`monsterid`,`itemid`,`chance`) VALUES ('9400217','4001106','2');
 INSERT INTO monsterdrops (`monsterid`,`itemid`,`chance`) VALUES ('9400218','4001106','2');
 */
-importPackage(net.sf.odinms.world);
-importPackage(net.sf.odinms.server.maps);
+importPackage(Packages.net.sf.odinms.world);
+importPackage(Packages.net.sf.odinms.server.maps);
 
 var exitMap;
 var instanceId;

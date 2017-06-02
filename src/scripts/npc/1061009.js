@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -23,22 +24,21 @@
 	Enter 3rd job event
 */
 
-importPackage(net.sf.odinms.client);
+importPackage(Packages.net.sf.odinms.client);
 
 function start() {
 	if (cm.getQuestStatus(100101).equals(MapleQuestStatus.Status.STARTED) && !cm.haveItem(4031059)) {
 		var em = cm.getEventManager("3rdjob");
 		if (em == null) {
-			cm.sendOk("Sorry, but everything is broken.");
+			cm.sendOk("Sorry, but 3rd job advancement is closed.");
 		} else {
 			em.newInstance(cm.getChar().getName()).registerPlayer(cm.getChar());
 		}
-	} else {
-		cm.sendOk("lul.");
 	}
+	cm.sendOk("A strange force prevents you from entering.");
 	cm.dispose();
 }
 
-function action(mode, type, selection) {
-
+function action(){
+	
 }

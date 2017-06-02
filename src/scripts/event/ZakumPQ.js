@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /* 
  * This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -25,7 +26,7 @@
  * Zakum Party Quest 
  */
  
-importPackage(net.sf.odinms.world);
+importPackage(Packages.net.sf.odinms.world);
 
 var exitMap;
 var instanceId;
@@ -67,7 +68,7 @@ function playerEntry(eim, player) {
 	player.changeMap(map, map.getPortal(0));
 	
 	//TODO: hold time across map changes
-	//player.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.getClock(1800));
+	//player.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.getClock(1800));
 }
 
 function playerRevive(eim, player) {

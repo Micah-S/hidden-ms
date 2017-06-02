@@ -1,3 +1,4 @@
+engine.eval("load('nashorn:mozilla_compat.js');");
 /*
 	This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
@@ -73,7 +74,7 @@ function announce() {
 	em.setProperty("entryPossible", "true");
 	if (i == 0) i = 5;
 	em.getChannelServer().broadcastPacket( 
-		net.sf.odinms.tools.MaplePacketCreator.serverNotice(6, "[Event] Field of Judgement will open in " + i + " minutes"));
+		Packages.net.sf.odinms.tools.MaplePacketCreator.serverNotice(6, "[Event] Field of Judgement will open in " + i + " minutes"));
 	i--;
 }
 
@@ -87,7 +88,7 @@ function mesoDistribution() {
 			var randWinner = Math.floor(Math.random() * eim.getPlayerCount());
 			var winner = eim.getPlayers().get(randWinner);
 			var map = eim.getMapFactory().getMap(mapId, false, false);
-			map.broadcastMessage(net.sf.odinms.tools.MaplePacketCreator.serverNotice(6, "[Event] " + winner.getName() + " wins " + meso + " meso"));
+			map.broadcastMessage(Packages.net.sf.odinms.tools.MaplePacketCreator.serverNotice(6, "[Event] " + winner.getName() + " wins " + meso + " meso"));
 			winner.gainMeso(meso, true, true, true);
 		}
 	}
@@ -96,7 +97,7 @@ function mesoDistribution() {
 function start() {
 	scheduleNew();
 	em.getChannelServer().broadcastPacket( 
-		net.sf.odinms.tools.MaplePacketCreator.serverNotice(6, "[Event] Field of Judgement is now open"));	
+		Packages.net.sf.odinms.tools.MaplePacketCreator.serverNotice(6, "[Event] Field of Judgement is now open"));	
 	var iter = em.getInstances().iterator();
 	while (iter.hasNext()) {
 		var eim = iter.next();
@@ -115,13 +116,13 @@ function startInstance(eim) {
 		var iter = eim.getPlayers().iterator();
 		while (iter.hasNext()) {
 			var player = iter.next();
-			player.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.getClock(1200));
+			player.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.getClock(1200));
 		}
 		var map = eim.getMapFactory().getMap(mapId, false, false);
 		if (eim.getName().equals("lolcastle1")) {
 			for (var x = 0; x < 100; x++) {
-				var mob = net.sf.odinms.server.life.MapleLifeFactory.getMonster(9500169);
-				var overrideStats = new net.sf.odinms.server.life.MapleMonsterStats();
+				var mob = Packages.net.sf.odinms.server.life.MapleLifeFactory.getMonster(9500169);
+				var overrideStats = new Packages.net.sf.odinms.server.life.MapleMonsterStats();
 				overrideStats.setHp(mob.getHp() * 3);
 				overrideStats.setExp(mob.getExp() / 4);
 				overrideStats.setMp(mob.getMaxMp());
@@ -132,8 +133,8 @@ function startInstance(eim) {
 				map.spawnMonsterOnGroudBelow(mob, new java.awt.Point(randX(), 100));
 			}
 			for (var x = 0; x < 10; x++) {
-				var mob = net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300136);
-				var overrideStats = new net.sf.odinms.server.life.MapleMonsterStats();
+				var mob = Packages.net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300136);
+				var overrideStats = new Packages.net.sf.odinms.server.life.MapleMonsterStats();
 				overrideStats.setHp(15000);
 				overrideStats.setExp(mob.getExp());
 				overrideStats.setMp(mob.getMaxMp());
@@ -145,8 +146,8 @@ function startInstance(eim) {
 			}
 		} else if (eim.getName().equals("lolcastle2")) {
 			for (var x = 0; x < 100; x++) {
-				var mob = net.sf.odinms.server.life.MapleLifeFactory.getMonster(5120000);
-				var overrideStats = new net.sf.odinms.server.life.MapleMonsterStats();
+				var mob = Packages.net.sf.odinms.server.life.MapleLifeFactory.getMonster(5120000);
+				var overrideStats = new Packages.net.sf.odinms.server.life.MapleMonsterStats();
 				overrideStats.setHp(30000);
 				overrideStats.setExp(mob.getExp() / 4);
 				overrideStats.setMp(mob.getMaxMp());
@@ -157,8 +158,8 @@ function startInstance(eim) {
 				map.spawnMonsterOnGroudBelow(mob, new java.awt.Point(randX(), 100));
 			}
 			for (var x = 0; x < 3; x++) {
-				var mob = net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300012);
-				var overrideStats = new net.sf.odinms.server.life.MapleMonsterStats();
+				var mob = Packages.net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300012);
+				var overrideStats = new Packages.net.sf.odinms.server.life.MapleMonsterStats();
 				overrideStats.setHp(mob.getHp());
 				overrideStats.setExp(mob.getExp());
 				overrideStats.setMp(mob.getMaxMp());
@@ -177,8 +178,8 @@ function startInstance(eim) {
 				} else {
 					mobId = 7130402;
 				}
-				var mob = net.sf.odinms.server.life.MapleLifeFactory.getMonster(mobId);
-				var overrideStats = new net.sf.odinms.server.life.MapleMonsterStats();
+				var mob = Packages.net.sf.odinms.server.life.MapleLifeFactory.getMonster(mobId);
+				var overrideStats = new Packages.net.sf.odinms.server.life.MapleMonsterStats();
 				overrideStats.setHp(mob.getHp() * 2);
 				overrideStats.setExp(mob.getExp() / 4);
 				overrideStats.setMp(mob.getMaxMp());
@@ -188,8 +189,8 @@ function startInstance(eim) {
 				map.spawnMonsterOnGroudBelow(mob, new java.awt.Point(randX(), 100));
 			}
 			for (var x = 0; x < 3; x++) {
-				var mob = net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300105);
-				var overrideStats = new net.sf.odinms.server.life.MapleMonsterStats();
+				var mob = Packages.net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300105);
+				var overrideStats = new Packages.net.sf.odinms.server.life.MapleMonsterStats();
 				overrideStats.setHp(mob.getHp());
 				overrideStats.setExp(mob.getExp() / 4);
 				overrideStats.setMp(mob.getMaxMp());
@@ -210,8 +211,8 @@ function startInstance(eim) {
 				} else {
 					mobId = 9300039;
 				}
-				var mob = net.sf.odinms.server.life.MapleLifeFactory.getMonster(mobId);
-				var overrideStats = new net.sf.odinms.server.life.MapleMonsterStats();
+				var mob = Packages.net.sf.odinms.server.life.MapleLifeFactory.getMonster(mobId);
+				var overrideStats = new Packages.net.sf.odinms.server.life.MapleMonsterStats();
 				if (x >= 75) {
 					overrideStats.setExp(mob.getExp());
 					overrideStats.setHp(mob.getHp());
@@ -240,8 +241,8 @@ function startInstance(eim) {
 				} else {
 					mobId = 8150100;
 				}
-				var mob = net.sf.odinms.server.life.MapleLifeFactory.getMonster(mobId);
-				var overrideStats = new net.sf.odinms.server.life.MapleMonsterStats();
+				var mob = Packages.net.sf.odinms.server.life.MapleLifeFactory.getMonster(mobId);
+				var overrideStats = new Packages.net.sf.odinms.server.life.MapleMonsterStats();
 				overrideStats.setHp(mob.getHp());
 				overrideStats.setExp(mob.getExp() / 4);
 				overrideStats.setMp(mob.getMaxMp());
@@ -251,8 +252,8 @@ function startInstance(eim) {
 				map.spawnMonsterOnGroudBelow(mob, new java.awt.Point(randX(), 100));
 			}
 			for (var x = 0; x < 3; x++) {
-				var mob = net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300152);
-				var overrideStats = new net.sf.odinms.server.life.MapleMonsterStats();
+				var mob = Packages.net.sf.odinms.server.life.MapleLifeFactory.getMonster(9300152);
+				var overrideStats = new Packages.net.sf.odinms.server.life.MapleMonsterStats();
 				overrideStats.setHp(2000000);
 				overrideStats.setExp(mob.getExp());
 				overrideStats.setMp(mob.getMaxMp());
@@ -293,7 +294,7 @@ function playerDead(eim, player) {
 	player.setHp(1);
 	player.changeMap(returnMap, returnMap.getPortal(0));
 	eim.unregisterPlayer(player);
-	player.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.serverNotice(1, "You lost with " + eim.getKillCount(player) + " points."));
+	player.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.serverNotice(1, "You lost with " + eim.getKillCount(player) + " points."));
 }
 
 function playerDisconnected(eim, player) {
@@ -322,7 +323,7 @@ function allMonstersDead(eim, player) {
 	}
 	// lolo nur noch der gewinner da
 	var map = eim.getMapFactory().getMap(mapId, false, false);
-	var ii = net.sf.odinms.server.MapleItemInformationProvider.getInstance();
+	var ii = Packages.net.sf.odinms.server.MapleItemInformationProvider.getInstance();
 	var priceRand = 1 + Math.floor(Math.random() * 100);
 	var price;
 	if (priceRand <= 35) {
@@ -465,18 +466,18 @@ function allMonstersDead(eim, player) {
 			);
 		}
 		var scrollRand = Math.floor(Math.random() * scrolls30.length);
-		price = new net.sf.odinms.client.Item(scrolls30[scrollRand], 0, 1);
+		price = new Packages.net.sf.odinms.client.Item(scrolls30[scrollRand], 0, 1);
 	} else if (priceRand > 45 && priceRand <= 70) {
 		// powerups
 		var powerUps = new Array(new Array(2022273, 3),
 						new Array(2022245, 3),
 						new Array(2022179, 1));
 		var powerRand = Math.floor(Math.random() * powerUps.length);
-		price = new net.sf.odinms.client.Item(powerUps[powerRand][0], 0, powerUps[powerRand][1]);
+		price = new Packages.net.sf.odinms.client.Item(powerUps[powerRand][0], 0, powerUps[powerRand][1]);
 	} else if (priceRand > 70 && priceRand <= 75) {
 		// throwing stars
 		var starId = 2070003 + Math.floor(Math.random() * 14);
-		price = new net.sf.odinms.client.Item(starId, 0, ii.getSlotMax(player.getClient(), starId));
+		price = new Packages.net.sf.odinms.client.Item(starId, 0, ii.getSlotMax(player.getClient(), starId));
 	} else if (priceRand > 75 && priceRand <= 95) {
 		// 60% scroll
 		var scrolls60 = new Array(	2044701, // claw att
@@ -502,7 +503,7 @@ function allMonstersDead(eim, player) {
 						2040301 // earring int
 		);
 		var scrollRand = Math.floor(Math.random() * scrolls60.length);
-		price = new net.sf.odinms.client.Item(scrolls60[scrollRand], 0, 1);
+		price = new Packages.net.sf.odinms.client.Item(scrolls60[scrollRand], 0, 1);
 	} else {
 		// 40% scroll
 		var scrolls40 = new Array(
@@ -524,14 +525,14 @@ function allMonstersDead(eim, player) {
 						2044708 // claw att
 		);
 		var scrollRand = Math.floor(Math.random() * scrolls40.length);
-		price = new net.sf.odinms.client.Item(scrolls40[scrollRand], 0, 1);		
+		price = new Packages.net.sf.odinms.client.Item(scrolls40[scrollRand], 0, 1);		
 	}
 	
 	var iter = eim.getPlayers().iterator();
 	while (iter.hasNext()) {
 		var winner = iter.next();
-		winner.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.serverNotice(1, "You win with " + eim.getKillCount(winner) + " points. You will be warped out in 2 minutes."));
-		winner.getClient().getSession().write(net.sf.odinms.tools.MaplePacketCreator.getClock(120));
+		winner.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.serverNotice(1, "You win with " + eim.getKillCount(winner) + " points. You will be warped out in 2 minutes."));
+		winner.getClient().getSession().write(Packages.net.sf.odinms.tools.MaplePacketCreator.getClock(120));
 		eim.saveWinner(winner);
 	}
 	var winner = eim.getPlayers().get(0);
