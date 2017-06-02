@@ -2,8 +2,8 @@
 color b
 cls
 
-title XiuzSource Starter
-echo XiuzSource has started:
+title HiddenMS Starter
+echo HiddenMS has started:
 start /b launch_world.bat
 echo World Launched
 

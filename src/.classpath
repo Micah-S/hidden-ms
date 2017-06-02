@@ -7,7 +7,7 @@
 	<classpathentry kind="lib" path="dist/mysql-connector-java-bin.jar"/>
 	<classpathentry kind="lib" path="dist/slf4j-api.jar"/>
 	<classpathentry kind="lib" path="dist/slf4j-jdk14.jar"/>
-	<classpathentry kind="lib" path="dist/XiuzSource.jar"/>
+	<classpathentry kind="lib" path="dist/HiddenMS.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
