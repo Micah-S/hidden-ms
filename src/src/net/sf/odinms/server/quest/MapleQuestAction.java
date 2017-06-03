@@ -42,6 +42,8 @@ public class MapleQuestAction {
 					return false;
 				}
 				break;
+			default:
+				break;
 		}
 		return true;
 	}
@@ -77,10 +79,14 @@ public class MapleQuestAction {
 				if (status.getStatus() == MapleQuestStatus.Status.NOT_STARTED && status.getForfeited() > 0) {
 					break;
 				}
-				c.gainExp(
-						MapleDataTool.getInt(data) * ChannelServer.getInstance(c.getClient().getChannel()).getExpRate(),
-						true, true);
-				break;
+				if (c.getMapId() < 1020001) { // player is on Maple Island, so lower the exp rate to 1x
+					c.gainExp(MapleDataTool.getInt(data), true, true);
+					break;
+				} else { // player not on Maple Island
+					c.gainExp(MapleDataTool.getInt(data)
+							* ChannelServer.getInstance(c.getClient().getChannel()).getExpRate(), true, true);
+					break;
+				}
 			case ITEM:
 				MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
 				Map<Integer, Integer> props = new HashMap<Integer, Integer>();
