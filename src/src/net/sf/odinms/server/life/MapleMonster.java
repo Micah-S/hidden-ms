@@ -296,8 +296,13 @@ public class MapleMonster extends AbstractLoadedMapleLife {
 	}
 
 	public MapleCharacter killBy(MapleCharacter killer) {
-		long totalBaseExpL = this.getExp() * ChannelServer.getInstance(killer.getClient().getChannel()).getExpRate()
-				* killer.getClient().getPlayer().hasEXPCard();
+		long totalBaseExpL;
+		if (killer.getMapId() < 1020001) { // player is on Maple Island, so lower the exp rate to 1x
+			totalBaseExpL = this.getExp();
+		} else { // player not on Maple Island
+			totalBaseExpL = this.getExp() * ChannelServer.getInstance(killer.getClient().getChannel()).getExpRate()
+					* killer.getClient().getPlayer().hasEXPCard();
+		}
 		int totalBaseExp = (int) (Math.min(Integer.MAX_VALUE, totalBaseExpL));
 		AttackerEntry highest = null;
 		int highdamage = 0;
