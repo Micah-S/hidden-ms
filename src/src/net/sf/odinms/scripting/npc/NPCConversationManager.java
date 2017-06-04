@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
@@ -823,5 +824,22 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
 			return compleated;
 		}
 		return compleated;
+	}
+
+	public void resetStats() {
+		List<Pair<MapleStat, Integer>> statup = new ArrayList<Pair<MapleStat, Integer>>(5);
+		int totAp = getPlayer().getRemainingAp() + getPlayer().getStr() + getPlayer().getDex() + getPlayer().getInt()
+				+ getPlayer().getLuk();
+		getPlayer().setStr(4);
+		getPlayer().setDex(4);
+		getPlayer().setInt(4);
+		getPlayer().setLuk(4);
+		getPlayer().setRemainingAp(totAp - 16);
+		statup.add(new Pair<MapleStat, Integer>(MapleStat.STR, Integer.valueOf(4)));
+		statup.add(new Pair<MapleStat, Integer>(MapleStat.DEX, Integer.valueOf(4)));
+		statup.add(new Pair<MapleStat, Integer>(MapleStat.LUK, Integer.valueOf(4)));
+		statup.add(new Pair<MapleStat, Integer>(MapleStat.INT, Integer.valueOf(4)));
+		statup.add(new Pair<MapleStat, Integer>(MapleStat.AVAILABLEAP, Integer.valueOf(getPlayer().getRemainingAp())));
+		getClient().getSession().write(MaplePacketCreator.updatePlayerStats(statup));
 	}
 }
