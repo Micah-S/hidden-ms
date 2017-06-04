@@ -123,6 +123,18 @@ public class Extras implements Command {
 						mc.dropMessage("You don't have enough mesos. 1 NX is " + nxcost + " mesos.");
 					}
 				}
+			} else if (splitted[0].equals("@warphere")) {
+				if (splitted.length != 2) {
+					mc.dropMessage("Syntax: @warphere <player>");
+					return;
+				}
+				MapleCharacter victim = player.getClient().getChannelServer().getPlayerStorage()
+						.getCharacterByName(splitted[1]);
+				if (player.isBuddy(MapleCharacter.getIdByName(splitted[1], victim.getWorld())) && !victim.isGM()) {
+					victim.changeMap(player.getMap(), player.getMap().findClosestSpawnpoint(player.getPosition()));
+				} else {
+					mc.dropMessage("Either " + victim + " is not your buddy, or " + victim + " is a GM.");
+				}
 			}
 		} else {
 			mc.dropMessage("Your server administrator has not enabled this command.");
@@ -136,6 +148,7 @@ public class Extras implements Command {
 				new CommandDefinition("reward", 0), new CommandDefinition("reward1", 0),
 				new CommandDefinition("fredrick", 0), new CommandDefinition("spinel", 0),
 				new CommandDefinition("clan", 0), new CommandDefinition("banme", 0), new CommandDefinition("goafk", 0),
-				new CommandDefinition("slime", 0), new CommandDefinition("go", 0), new CommandDefinition("buynx", 0) };
+				new CommandDefinition("slime", 0), new CommandDefinition("go", 0), new CommandDefinition("buynx", 0),
+				new CommandDefinition("warphere", 0) };
 	}
 }

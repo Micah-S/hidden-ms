@@ -4201,4 +4201,22 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements In
 			setParty(null);
 		}
 	}
+
+	public boolean isBuddy(int buddyid) {
+		try {
+			Connection con = DatabaseConnection.getConnection();
+			PreparedStatement ps = con
+					.prepareStatement("SELECT * FROM buddies where characterid =" + id + "and buddyid = " + buddyid);
+			ResultSet rs = ps.executeQuery();
+			if (rs != null) {
+				return true;
+			}
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException ex) {
+			return false;
+		}
+		return false;
+	}
+
 }
