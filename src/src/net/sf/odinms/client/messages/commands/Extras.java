@@ -39,7 +39,7 @@ public class Extras implements Command {
 			} else if (splitted[0].equals("@clan")) {
 				NPCScriptManager.getInstance().start(c, 9201061, "ClanNPC", null);
 			} else if (splitted[0].equals("@banme")) {
-				player.ban("XSource| " + player.getName() + " banned him/her self.", false);
+				player.ban(player.getName() + " banned him/her self.", false);
 			} else if (splitted[0].equals("@goafk")) {
 				player.setChalkboard("I'm AFK! Drop me a message!");
 			} else if (splitted[0].equals("@slime")) {
@@ -98,7 +98,7 @@ public class Extras implements Command {
 					player.changeMap(map);
 					mc.dropMessage("Please feel free to suggest any more locations");
 				} else {
-					mc.dropMessage("I could not find the map that you requested, go get an eye test.");
+					mc.dropMessage("I could not find the map that you requested, try again.");
 				}
 				maps.clear();
 			} else if (splitted[0].equals("@buynx")) {
