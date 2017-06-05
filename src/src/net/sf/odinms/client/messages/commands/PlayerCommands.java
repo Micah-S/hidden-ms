@@ -43,6 +43,7 @@ public class PlayerCommands implements Command {
 				mc.dropMessage("@slime - | - For a small cost, it summons smiles for you.");
 				mc.dropMessage("@go - | - Takes you to many towns and fighting areas.");
 				mc.dropMessage("@buynx - | - You can purchase NX with this command.");
+				mc.dropMessage("@warptome <player> - | - Warp a player on your buddy list to your map.");
 			}
 		} else if (splitted[0].equals("@checkstats")) {
 			mc.dropMessage("Your stats are:");
