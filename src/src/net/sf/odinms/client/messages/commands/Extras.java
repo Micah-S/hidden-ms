@@ -123,17 +123,24 @@ public class Extras implements Command {
 						mc.dropMessage("You don't have enough mesos. 1 NX is " + nxcost + " mesos.");
 					}
 				}
-			} else if (splitted[0].equals("@warphere")) {
+			} else if (splitted[0].equals("@warptome")) {
 				if (splitted.length != 2) {
-					mc.dropMessage("Syntax: @warphere <player>");
+					mc.dropMessage("Syntax: @warptome <player>");
 					return;
 				}
-				MapleCharacter victim = player.getClient().getChannelServer().getPlayerStorage()
-						.getCharacterByName(splitted[1]);
-				if (player.isBuddy(MapleCharacter.getIdByName(splitted[1], victim.getWorld())) && !victim.isGM()) {
-					victim.changeMap(player.getMap(), player.getMap().findClosestSpawnpoint(player.getPosition()));
+				int id = MapleCharacter.getIdByName(splitted[1], player.getWorld());
+				if (player.isBuddy(id)) {
+					MapleCharacter victim = player.getClient().getChannelServer().getPlayerStorage()
+							.getCharacterById(id);
+					if (!(victim == null) && !(victim.isGM())) {
+						victim.changeMap(player.getMap(), player.getMap().findClosestSpawnpoint(player.getPosition()));
+					} else {
+						mc.dropMessage("Either '" + splitted[1] + "' is not your buddy, or '" + splitted[1]
+								+ "' may be offline.");
+					}
 				} else {
-					mc.dropMessage("Either " + victim + " is not your buddy, or " + victim + " is a GM.");
+					mc.dropMessage(
+							"Either '" + splitted[1] + "' is not your buddy, or '" + splitted[1] + "' may be offline.");
 				}
 			}
 		} else {
@@ -149,6 +156,6 @@ public class Extras implements Command {
 				new CommandDefinition("fredrick", 0), new CommandDefinition("spinel", 0),
 				new CommandDefinition("clan", 0), new CommandDefinition("banme", 0), new CommandDefinition("goafk", 0),
 				new CommandDefinition("slime", 0), new CommandDefinition("go", 0), new CommandDefinition("buynx", 0),
-				new CommandDefinition("warphere", 0) };
+				new CommandDefinition("warptome", 0) };
 	}
 }

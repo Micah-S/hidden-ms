@@ -4202,13 +4202,28 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements In
 		}
 	}
 
+	/**
+	 * Queries the DB to check if this character has another character added to their buddy list
+	 * (and vice versa)
+	 * 
+	 * @param buddyid the id of the other player to check
+	 * @return true if both characters are buddies, otherwise false
+	 */
 	public boolean isBuddy(int buddyid) {
+		if (buddyid == -1) {
+			return false;
+		}
 		try {
-			Connection con = DatabaseConnection.getConnection();
-			PreparedStatement ps = con
-					.prepareStatement("SELECT * FROM buddies where characterid =" + id + "and buddyid = " + buddyid);
+			PreparedStatement ps = DatabaseConnection.getConnection()
+					.prepareStatement("SELECT * FROM "
+							+ "(SELECT * FROM buddies WHERE characterid = ? AND buddyid = ?) t1 " + "INNER JOIN "
+							+ "(SELECT * FROM buddies WHERE characterid = ? AND buddyid = ?) t2");
+			ps.setInt(1, id);
+			ps.setInt(2, buddyid);
+			ps.setInt(3, buddyid);
+			ps.setInt(4, id);
 			ResultSet rs = ps.executeQuery();
-			if (rs != null) {
+			if (rs.next()) {
 				return true;
 			}
 			ps.executeUpdate();
