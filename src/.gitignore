@@ -1,2 +1,5 @@
 /bin/
+/build-hiddenms.jardesc
+/dist/HiddenMS.jar
 /wz/
+/.project
