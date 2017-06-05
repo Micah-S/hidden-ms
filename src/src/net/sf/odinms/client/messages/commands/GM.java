@@ -325,8 +325,13 @@ public class GM implements Command {
 			} catch (NumberFormatException asd) {
 				return;
 			}
-			player.setLevel(level);
-			player.levelUp();
+			if (level > 1) {
+				player.setLevel(level - 1);
+				player.levelUp();
+			} else {
+				player.setLevel(1);
+				mc.dropMessage("Relog or change channels to display level 1.");
+			}
 			player.setExp(0);
 			player.updateSingleStat(MapleStat.EXP, 0);
 		} else if (splitted[0].equals("!online")) {
