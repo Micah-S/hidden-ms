@@ -85,26 +85,22 @@ public class PlayerCommands implements Command {
 				mc.dropMessage("You need 10,000,000 mesos to toggle smegas.");
 			}
 		} else if (splitted[0].equals("@str") || splitted[0].equals("@dex") || splitted[0].equals("@int")
-				|| splitted[0].equals("@luk") || splitted[0].equals("@hp") || splitted[0].equals("@mp")) {
+				|| splitted[0].equals("@luk")) {
 			if (splitted.length != 2) {
 				mc.dropMessage("Syntax: @<Stat> <amount>");
-				mc.dropMessage("Stat: <STR> <DEX> <INT> <LUK> <HP> <MP>");
+				mc.dropMessage("Stat: <STR> <DEX> <INT> <LUK>");
 				return;
 			}
-			int x = Integer.parseInt(splitted[1]), max = 30000;
-			if (x > 0 && x <= player.getRemainingAp() && x < Short.MAX_VALUE) {
-				if (splitted[0].equals("@str") && x + player.getStr() < max) {
+			int x = Integer.parseInt(splitted[1]), max = Short.MAX_VALUE;
+			if (x > 0 && x <= player.getRemainingAp() && x <= Short.MAX_VALUE) {
+				if (splitted[0].equals("@str") && x + player.getStr() <= max) {
 					player.addAP(c, 1, x);
-				} else if (splitted[0].equals("@dex") && x + player.getDex() < max) {
+				} else if (splitted[0].equals("@dex") && x + player.getDex() <= max) {
 					player.addAP(c, 2, x);
-				} else if (splitted[0].equals("@int") && x + player.getInt() < max) {
+				} else if (splitted[0].equals("@int") && x + player.getInt() <= max) {
 					player.addAP(c, 3, x);
-				} else if (splitted[0].equals("@luk") && x + player.getLuk() < max) {
+				} else if (splitted[0].equals("@luk") && x + player.getLuk() <= max) {
 					player.addAP(c, 4, x);
-				} else if (splitted[0].equals("@hp") && x + player.getMaxHp() < max) {
-					player.addAP(c, 5, x);
-				} else if (splitted[0].equals("@mp") && x + player.getMaxMp() < max) {
-					player.addAP(c, 6, x);
 				} else {
 					mc.dropMessage(
 							"Make sure the stat you are trying to raise will not be over " + Short.MAX_VALUE + ".");
