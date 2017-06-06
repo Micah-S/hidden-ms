@@ -1,7 +1,8 @@
-/* Author: Xterminator
-	NPC Name: 		Shanks
-	Map(s): 		Maple Road : Southperry (60000)
+/*
+	NPC Name: 			Shanks
+	Map(s): 			Maple Road : Southperry (60000)
 	Description: 		Brings you to Victoria Island
+	Original Author:	Xterminator
 */
 var status = 0;
 
@@ -14,7 +15,7 @@ function action(mode, type, selection) {
 	if (mode == -1) {
 		cm.dispose();
 	} else {
-		if (status >= 0 && mode == 0) {
+		if (status >= 0  && mode == 0) {
 			cm.sendOk("Hmm... I guess you still have things to do here?");
 			cm.dispose();
 			return;
@@ -33,9 +34,9 @@ function action(mode, type, selection) {
 			}
 		} else if (status == 2) {
 			if (cm.haveItem(4031801)) {
-				cm.sendNextPrev("Since you have the recommendation letter, I won't charge you for this. Alright, buckle up, because we're going to head to Victoria Island right now, and it might get a bit turbulent!!");
+				cm.sendNext("Since you have the recommendation letter, I won't charge you for this. Alright, buckle up, because we're going to head to Victoria Island right now, and it might get a bit turbulent!!");
 			} else {
-				if (cm.getLevel() >= 7) {
+				if (cm.getLevel() >= 4) {
 					if (cm.getMeso() < 150) {
 						cm.sendOk("What? You're telling me you wanted to go without any money? You're one weirdo...");
 						cm.dispose();
@@ -43,11 +44,16 @@ function action(mode, type, selection) {
 						cm.sendNext("Awesome! #e150#n mesos accepted! Alright, off to Victoria Island!");
 					}
 				} else {
-					cm.sendOk("Let's see... I don't think you are strong enough. You'll have to be at least Level 7 to go to Victoria Island.");
+					cm.sendOk("Let's see... I don't think you are strong enough. You'll have to be at least Level 4 to go to Victoria Island.");
 					cm.dispose();
 				}
 			}
 		} else if (status == 3) {
+			cm.sendSimple("Would you like a free AP stat reset before you go?.\r\n#L0#Yes, reset my stats (recommended)#l\r\n#L1#Nope, leave them#l");
+		} else if (status == 4) {
+			if (selection == 0) {
+				cm.resetStats();
+			}
 			if (cm.haveItem(4031801)) {
 				cm.gainItem(4031801, -1);
 				cm.warp(104000000);
