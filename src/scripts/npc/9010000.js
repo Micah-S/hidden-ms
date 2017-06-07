@@ -1,40 +1,42 @@
 var status;
-var questions = new Array("In space it is possible to cry?",
-"Is 'Copyrightable' the longest word in the English language that can be written without repeating a letter?",
-"Is it true that slug's don't have any noses?",
-"Do most Eskimoes have fridges?",
-"Does the owner of the server like pie?",
-"Is an Ostrich's eye bigger than it's brain?",
-"Was Thomas Edison, who invented the lightbulb, afraid of the dark?",
-"Is the letter 't' is the second most common letter used in the English language?",
-"Is the weakest monster in MapleStory the Blue Snail ?",
-"Is the most powerful monster in MapleStory the JR. Balrog ?",
-"Is the weakest among the mushrooms the Orange Mushroom ?",
-"When you defeat the Pig, Wild Boar, or the Horned Mushroom, you'll obtain [leather].",
-"The JR. Balrog that lives in the cursed altar is a Level. 80 monster.",
-"The fastest monster in MapleStory is the Stone Gollem.",
-"Mushmom, a humongous mushroom monster, is basically a giant version of the Orange Mushroom.",
-"Bubblings that reside in subways attack by firing bubbles from long range.",
-"Beginners need to pay only 100 mesos, a major discount, to use the cabs that are placed on every town on the island."
+var questions = new Array(
+	"In space it is possible to cry?",
+	"Is 'Copyrightable' the longest word in the English language that can be written without repeating a letter?",
+	"Is it true that slug's don't have any noses?",
+	"Do most Eskimoes have fridges?",
+	"Does the owner of the server like pie?",
+	"Is an Ostrich's eye bigger than it's brain?",
+	"Was Thomas Edison, who invented the lightbulb, afraid of the dark?",
+	"Is the letter 't' is the second most common letter used in the English language?",
+	"Is the weakest monster in MapleStory the Blue Snail ?",
+	"Is the most powerful monster in MapleStory the JR. Balrog ?",
+	"Is the weakest among the mushrooms the Orange Mushroom ?",
+	"When you defeat the Pig, Wild Boar, or the Horned Mushroom, you'll obtain [leather].",
+	"The JR. Balrog that lives in the cursed altar is a Level. 80 monster.",
+	"The fastest monster in MapleStory is the Stone Gollem.",
+	"Mushmom, a humongous mushroom monster, is basically a giant version of the Orange Mushroom.",
+	"Bubblings that reside in subways attack by firing bubbles from long range.",
+	"Beginners need to pay only 100 mesos, a major discount, to use the cabs that are placed on every town on the island."
 );
 var answers = new Array(false, false, false, true, true, true, true, true, false, false, false, false, true, false, true, false, false);
-var rOutput = new Array("There is no gravity, so tears cannot flow",
-"It's 'uncopyrightable'",
-"They actually have four",
-"They use fridges to keep their food from going frozen",
-"Yes he does ! A!SDLASDASLD OMG BBQHAX.",
-"According to some faggots on the internet, the eye is larger",
-"This guy was actually a pussy, you cant blame him *COUGH NERD COUGH*",
-"No idea why but yeah t is the second most command letter used.",
-"The weakest monster is the GREEN SNAIL. (LV. 1)",
-"Currently the most powerful monster is the CRIMSON BALROG.",
-"The weakest among the mushrooms is the SPORE. (LV. 2)",
-"HORNED MUSHROOM does not provide [leather].",
-"JR. BALROG is a LV. 80 monster.",
-"Stone Gollem and Dark Stone Gollem is considered the slowest monsters in the game.",
-"MUSHMOM is a giant version of the ORANGE MUSHROOM.",
-"BUBBLINGS only attack up-close.",
-"Beginners only need to pay 50 mesos to use the cab."
+var rOutput = new Array(
+	"There is no gravity, so tears cannot flow",
+	"It's 'uncopyrightable'",
+	"They actually have four",
+	"They use fridges to keep their food from going frozen",
+	"Yes he does ! A!SDLASDASLD OMG BBQHAX.",
+	"According to some faggots on the internet, the eye is larger",
+	"This guy was actually a pussy, you cant blame him *COUGH NERD COUGH*",
+	"No idea why but yeah t is the second most command letter used.",
+	"The weakest monster is the GREEN SNAIL. (LV. 1)",
+	"Currently the most powerful monster is the CRIMSON BALROG.",
+	"The weakest among the mushrooms is the SPORE. (LV. 2)",
+	"HORNED MUSHROOM does not provide [leather].",
+	"JR. BALROG is a LV. 80 monster.",
+	"Stone Gollem and Dark Stone Gollem is considered the slowest monsters in the game.",
+	"MUSHMOM is a giant version of the ORANGE MUSHROOM.",
+	"BUBBLINGS only attack up-close.",
+	"Beginners only need to pay 50 mesos to use the cab."
 );
 var asked = new Array();
 var currentQuestion;
@@ -58,7 +60,7 @@ function action(mode, type, selection) {
 	}
 	
 	if (status == 0)
-		cm.sendAcceptDecline("Hey I'm #p"+cm.getNpc()+"#.\r\n I'm the quiz guy of #b"+cm.serverName()+"MS.#k How would you like to participate in this awesome true or false game and earn some prizes ?");
+		cm.sendAcceptDecline("Hey I'm #p"+cm.getNpc()+"#.\r\n I'm the quiz guy of #b"+cm.serverName()+".#k How would you like to participate in this awesome true or false game and earn some prizes ?");
 	else if (status == 1)
 		cm.sendSimple("Excited to start ? Pick your choice.#b\r\n#L0#Start quiz !#l\r\n#L1#Explain how the quiz works#l\r\n#L2#What prizes can I obtain#l\r\n#L3#Where did the questions come from.#l");
 	else if (status == 2) {
