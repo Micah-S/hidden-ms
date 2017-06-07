@@ -11203,6 +11203,9 @@ INSERT INTO `monsterdrops` (`monsterdropid`,`monsterid`,`itemid`,`chance`) VALUE
  (10423,9001003,4031059,1);
  (10424, 9409001,4000301,1), --tutorial drumming rabbit
  (10425, 9409000,4000300,1), --tutorial leatty
+ (10426, 9001006,4031856,1), --2nd job adv Pirate
+ (10427, 9001005,4031857,1); --2nd job adv Pirate
+
 /*!40000 ALTER TABLE `monsterdrops` ENABLE KEYS */;
 
 
