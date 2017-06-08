@@ -1,30 +1,10 @@
 engine.eval("load('nashorn:mozilla_compat.js');");
-/*
-	This file is part of the OdinMS Maple Story Server
-    Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
-                       Matthias Butz <matze@odinms.de>
-                       Jan Christian Meyer <vimes@odinms.de>
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License version 3
-    as published by the Free Software Foundation. You may not use, modify
-    or distribute this program under any other version of the
-    GNU Affero General Public License.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-/* Athena Pierce
-	Bowman Job Advancement
-	Victoria Road : Bowman Instructional School (100000201)
-
-	Custom Quest 100000, 100002
+/*  
+	NPC Name: 			Athena Pierce
+	Map(s): 			Victoria Road : Bowman Instructional School (100000201)
+	Description: 		Bowman Job Advancement
+	Original Author:	Xterminator
+	Custom Quest(s):	100000, 100002, 100100, 100101
 */
 
 importPackage(Packages.net.sf.odinms.client);
@@ -37,7 +17,7 @@ function start() {
 	action(1, 0, 0);
 }
 
-function action(mode, type, selection) {
+function action(mode, type, selection) {	
 	if (mode == -1) {
 		cm.dispose();
 	} else {
@@ -51,7 +31,7 @@ function action(mode, type, selection) {
 		else
 			status--;
 		if (status == 0) {
-			if (cm.getJob().equals(Packages.net.sf.odinms.client.MapleJob.BEGINNER)) {
+			if (cm.getJob().equals(MapleJob.BEGINNER)) {
 				if (cm.getLevel() >= 10 && cm.getChar().getDex() >= 25)
 					cm.sendNext("So you decided to become a #rBowman#k?");
 				else {
@@ -59,13 +39,10 @@ function action(mode, type, selection) {
 					cm.dispose();
 				}
 			} else {
-				if (cm.getLevel() >= 30 
-					&& cm.getJob().equals(Packages.net.sf.odinms.client.MapleJob.BOWMAN)) {
-					if (cm.getQuestStatus(100000).getId() >=
-						Packages.net.sf.odinms.client.MapleQuestStatus.Status.STARTED.getId()) {
+				if (cm.getLevel() >= 30 && cm.getJob().equals(MapleJob.BOWMAN)) {
+					if (cm.getQuestStatus(100000).getId() >= MapleQuestStatus.Status.STARTED.getId()) {
 						cm.completeQuest(100002);
-						if (cm.getQuestStatus(100002) ==
-						 Packages.net.sf.odinms.client.MapleQuestStatus.Status.COMPLETED) {
+						if (cm.getQuestStatus(100002) == MapleQuestStatus.Status.COMPLETED) {
 							status = 20;
 							cm.sendNext("I see you have done well. I will allow you to take the next step on your long road.");
 						} else {
@@ -76,10 +53,19 @@ function action(mode, type, selection) {
 						status = 10;
 						cm.sendNext("The progress you have made is astonishing.");
 					}
+				} else if (cm.getLevel() >= 70 && cm.getQuestStatus(100100) == MapleQuestStatus.Status.NOTSTARTED) {
+					cm.sendOk("I see you have been training hard. You should go see #bRene#kin El Nath to continue your progress.");
+					cm.dispose();
 				} else if (cm.getQuestStatus(100100).equals(MapleQuestStatus.Status.STARTED)) {
-					cm.completeQuest(100101);
-					if (cm.getQuestStatus(100101).equals(MapleQuestStatus.Status.COMPLETED)) {
-						cm.sendOk("Alright, now take this to #bRene#k.");
+					if (cm.haveItem(4031059)) { //Has black charm
+						cm.removeAll(4031059);
+						cm.completeQuest(100101)
+					}
+					if (cm.getQuestStatus(100101).equals(MapleQuestStatus.Status.COMPLETED) && !(cm.haveItem(4031057))) {
+						cm.sendOk("Alright, now take this #i4031057# to #bRene#k.");
+						cm.gainItem(4031057);
+					} else if (cm.getQuestStatus(100101).equals(MapleQuestStatus.Status.COMPLETED) && (cm.haveItem(4031057))) {
+						cm.sendOk("Go and take #bThe Necklace of Strength#k to #bRene#k.");
 					} else {
 						cm.sendOk("Hey, " + cm.getChar().getName() + "! I need a #bBlack Charm#k. Go and find the Door of Dimension.");
 						cm.startQuest(100101);
@@ -95,11 +81,12 @@ function action(mode, type, selection) {
 		} else if (status == 2) {
 			cm.sendYesNo("Do you want to become a #rBowman#k?");
 		} else if (status == 3) {
-			if (cm.getJob().equals(Packages.net.sf.odinms.client.MapleJob.BEGINNER))
-				cm.changeJob(Packages.net.sf.odinms.client.MapleJob.BOWMAN);
-			cm.gainItem(1452002, 1);
-			cm.gainItem(2060000, 1000);
-			cm.sendOk("So be it! Now go, and go with pride.");
+			if (cm.getJob().equals(MapleJob.BEGINNER)) {
+				cm.changeJob(MapleJob.BOWMAN);
+				cm.gainItem(1452002, 1);
+				cm.gainItem(2060000, 1000);
+				cm.sendOk("So be it! Now go, and go with pride.");
+			}
 			cm.dispose();
 		} else if (status == 11) {
 			cm.sendNextPrev("You may be ready to take the next step as a #rHunter#k or #rCrossbowman#k.")
@@ -111,6 +98,7 @@ function action(mode, type, selection) {
 			} else {
 				cm.startQuest(100000);
 				cm.sendOk("Go see the #bJob Instructor#k near Henesys. He will show you the way.");
+				cm.dispose();
 			}
 		} else if (status == 21) {
 			cm.sendSimple("What do you want to become?#b\r\n#L0#Hunter#l\r\n#L1#Crossbowman#l#k");
@@ -118,15 +106,19 @@ function action(mode, type, selection) {
 			var jobName;
 			if (selection == 0) {
 				jobName = "Hunter";
-				job = Packages.net.sf.odinms.client.MapleJob.HUNTER;
+				job = MapleJob.HUNTER;
 			} else {
 				jobName = "Crossbowman";
-				job = Packages.net.sf.odinms.client.MapleJob.CROSSBOWMAN;
+				job = MapleJob.CROSSBOWMAN;
 			}
 			cm.sendYesNo("Do you want to become a #r" + jobName + "#k?");
 		} else if (status == 23) {
+			if (job.equals(MapleJob.HUNTER))
+				cm.gainItem(1452033);
+			else
+				cm.gainItem(1462029);
 			cm.changeJob(job);
 			cm.sendOk("So be it! Now go, and go with pride.");
 		}
 	}
-}	
+}
