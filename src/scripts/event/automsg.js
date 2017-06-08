@@ -6,7 +6,7 @@ function init() {
 }
 
 function scheduleNew() {
-	setupTask = em.scheduleAtFixedRate("start", 1000 * 60 * 10);
+	setupTask = em.scheduleAtFixedRate("start", 30 * (1000 * 60));
 }
 
 function cancelSchedule() {
