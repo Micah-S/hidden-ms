@@ -1,8 +1,8 @@
 engine.eval("load('nashorn:mozilla_compat.js');");
 /*
-	NPC Name: 			Robeira
+	NPC Name: 			Pedro
 	Map(s): 			El Nath: Chief's Residence (211000001)
-	Description: 		Magician 3rd Job Advancement
+	Description: 		Pirate 3rd Job Advancement
 	Original Author:	Xterminator
 	Custom Quest(s):	100100, 100102
 */
@@ -14,9 +14,7 @@ var sel;
 actionx = {"Mental" : false, "Physical" : false};
 
 function start() {
-    if (!(cm.getJob().equals(MapleJob.FP_WIZARD) ||
-				cm.getJob().equals(MapleJob.IL_WIZARD) ||
-				cm.getJob().equals(MapleJob.CLERIC))){
+    if (!(cm.getJob().equals(MapleJob.BRAWLER) || cm.getJob().equals(MapleJob.GUNSLINGER))){
 		cm.sendOk("May #rSimplicity#k be with you!");
 		cm.dispose();
 		return;
@@ -48,7 +46,7 @@ function action(mode, type, selection){
         if (status == 0)
 			cm.sendNext("Great job completing the mental part of the test. You have wisely answered all the questions correctly. I must say, I am quite impressed with the level of wisdom you have displayed there. Please hand me the necklace first, before we take on the next step.");
         else if (status == 1)
-			cm.sendYesNo("Great! You may now become the kind of Magician you've always dreamed of! With newfound power and stellar new skills, your power has endless possibilities! Since you've already chosen which of the paths you wanted to take for the Magician's 2nd job advancement, this will not require much thought. Do you wish to make the job advancement right now?");
+			cm.sendYesNo("Great! You may now become the kind of Pirate you've always dreamed of! With newfound power and stellar new skills, your power has endless possibilities! Since you've already chosen which of the two paths you wanted to take for the Pirate's 2nd job advancement, this will not require much thought. Do you wish to make the job advancement right now?");
         else if (status == 2) {
             if (cm.getPlayer().getRemainingSp() > 0)
                 if (cm.getPlayer().getRemainingSp() > (cm.getLevel() - 70) * 3) {
@@ -56,27 +54,21 @@ function action(mode, type, selection){
                     cm.dispose();
                     return;
                 }
-            if (cm.getJob().equals(MapleJob.FP_WIZARD)) {
-                cm.changeJob(MapleJob.FP_MAGE);
+            if (cm.getJob().equals(MapleJob.BRAWLER)) {
+                cm.changeJob(MapleJob.MARAUDER);
                 cm.getChar().gainAp(5);
                 cm.gainItem(4031058, -1);
-                cm.sendNext("Great! You are now a #bFire/Poison Mage#k. As a Fire/Poison Mage, you will learn some of the most sophisticated skills related to magic-based attacks.");
+                cm.sendNext("Great! You are now a #bMarauder#k. As a Marauder, you will learn some of the most sophisticated skills related to melee-based attacks.");
             }
-            if (cm.getJob().equals(MapleJob.IL_WIZARD)) {
-                cm.changeJob(MapleJob.IL_MAGE);
+            if (cm.getJob().equals(MapleJob.GUNSLINGER)) {
+                cm.changeJob(MapleJob.OUTLAW);
                 cm.getChar().gainAp(5);
                 cm.gainItem(4031058, -1);
-				cm.sendNext("Great! You are now an #bIce/Lightning Mage#k. As an Ice/Lightning Mage, you will learn some of the most sophisticated skills related to magic-based attacks.")
-            }
-			if (cm.getJob().equals(MapleJob.CLERIC)) {
-                cm.changeJob(MapleJob.PRIEST);
-                cm.getChar().gainAp(5);
-                cm.gainItem(4031058, -1);
-				cm.sendNext("Great! You are now a #bPriest#k. As a Priest, you will learn some of the most sophisticated skills related to magic-based attacks.")
+				cm.sendNext("Great! You are now an #bOutlaw#k. As an Outlaw, you will learn some of the most sophisticated skills related to ranged-based attacks.")
             }
 			cm.completeQuest(100102);
         } else if (status == 3) {
-			cm.sendOk("I have also given you Skill Points and Ability Points, so please apply them when you get a chance. Now that you have made the job advancement, I believe you have now become a formidable Magician. Remember, though, that this will open up a whole new set of difficult journeys for you to take.")
+			cm.sendOk("I have also given you Skill Points and Ability Points, so please apply them when you get a chance. Now that you have made the job advancement, I believe you have now become a formidable Pirate. Remember, though, that this will open up a whole new set of difficult journeys for you to take.")
         }
     } else if (actionx["Physical"]) {
         if (status == 0)
@@ -105,21 +97,18 @@ function action(mode, type, selection){
 		if (sel == undefined)
 			sel = selection;
 		if (sel == 0){
-			if (cm.getPlayer().getLevel() >= 70 && 
-				(cm.getJob().equals(MapleJob.FP_WIZARD) ||
-				cm.getJob().equals(MapleJob.IL_WIZARD) ||
-				cm.getJob().equals(MapleJob.CLERIC))) {
+			if (cm.getPlayer().getLevel() >= 70 && cm.getJob().equals(MapleJob.BRAWLER) || cm.getJob().equals(MapleJob.GUNSLINGER)) {
 				if (status == 0) {
-					cm.sendNext("Hmm. So you want to become a stronger Magician by making the 3rd job advancement? First let me say congratulations! Few have this level of dedication...");
+					cm.sendNext("Hmm. So you want to become a stronger Pirate by making the 3rd job advancement? First let me say congratulations! Few have this level of dedication...");
 				} else if (status == 1) {
 					cm.sendNextPrev("I can certainly make you stronger with my powers, but I'll need to test your strength to see if your training has been adequate. Many come professing their strength, few are actually able to prove it.")
 				} else if (status == 2) {
 					cm.sendYesNo("Are you ready for me to test your strength?");
 				} else if (status == 3) {
-					cm.sendNext("Great! Now you will have to prove your strength and intelligence. Let me first explain the strength test. Do you remember #bGrendel the Really Old#k from Ellion who helped you make the 1st and 2nd job advancements?");
+					cm.sendNext("Great! Now you will have to prove your strength and intelligence. Let me first explain the strength test. Do you remember #bKyrin#k from The Nautilus who helped you make the 1st and 2nd job advancements?");
 					cm.startQuest(100100);
 				} else if (status == 4) {
-					cm.sendOk("Go to see him and he will give you a task to fulfill. Complete the task to receive #bThe Necklace of Strength#k which I'd like you to bring back to me.")
+					cm.sendOk("Go to see her and she will give you a task to fulfill. Complete the task to receive #bThe Necklace of Strength#k which I'd like you to bring back to me.")
 				}
 			}
 		} else {
